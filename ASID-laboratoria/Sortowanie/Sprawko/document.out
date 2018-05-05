@@ -1,0 +1,20 @@
+\BOOKMARK [1][-]{section.1}{Implementacja algorytm\363w sortujacych}{}% 1
+\BOOKMARK [1][-]{section.2}{Badana zaleznosc czasu obliczen \040t[s] od liczby sortowanych element\363w \040n . }{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Podzia\233 metod sortowania}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Metody \040"wolne"}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Opis algorytm\363w "wolnych"}{subsection.2.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Wnioski do metod "wolnych"}{subsection.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Metody "szybkie"}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Opis algorytm\363w "szybkich"}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Wnioski do metod "szybkich"}{subsection.2.3}% 9
+\BOOKMARK [2][-]{subsection.2.4}{Wnioski do podzia\233u metod sortowania}{section.2}% 10
+\BOOKMARK [1][-]{section.3}{Badanie zaleznosci czasu t od liczby sortowanych element\363w n, przy rozk\233adach losowych i rosnacych, dla metod Quick Sort z podzia\233em wg: skrajnego i srodowego elementu, oraz dla metody Insert Sort}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Rozk\233ad losowy}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Rozk\233ad rosnacy}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{Wnioski do zaleznosci czasu t od liczby sortowanych element\363w n, przy rozk\233adach losowych i rosnacych, dla metod Quick Sort z podzia\233em wg: skrajnego i srodowego elementu, oraz dla metody Insert Sort}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Badanie zaleznosci czasu obliczen t od liczby sortowanych element\363w n dla metod Counting Sort, Quick Sort, przy rozk\233adzie losowym, gdy wartosci element\363w mieszcza sie w przedzia\233ach \040[1;0,01n] , \040[1;100n] . }{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Przedzia\233 [1;0,01n]}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Wnioski do przedzia\233u [1;0.01n]}{subsection.4.1}% 17
+\BOOKMARK [2][-]{subsection.4.2}{Przedzia\233 [1;100n]}{section.4}% 18
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Wnioski do przedzia\233u [1;100n]}{subsection.4.2}% 19
+\BOOKMARK [2][-]{subsection.4.3}{Wnioski do badania zaleznosci czasu obliczen t od liczby sortowanych element\363w n dla metod Counting Sort, Quick Sort, przy rozk\233adzie losowym, gdy wartosci element\363w mieszcza sie w przedzia\233ach \040[1;0,01n] , [1;100n] . }{section.4}% 20

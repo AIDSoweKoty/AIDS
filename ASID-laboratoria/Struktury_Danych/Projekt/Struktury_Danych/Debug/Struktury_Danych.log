@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\piotr\documents\visual studio 2015\projects\struktury_danych\struktury_danych\arraycreating.h(49): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Struktury_Danych.vcxproj -> C:\Users\Piotr\Documents\Visual Studio 2015\Projects\Struktury_Danych\Debug\Struktury_Danych.exe
+  Struktury_Danych.vcxproj -> C:\Users\Piotr\Documents\Visual Studio 2015\Projects\Struktury_Danych\Debug\Struktury_Danych.pdb (Partial PDB)
