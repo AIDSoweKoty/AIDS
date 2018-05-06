@@ -2,3 +2,9 @@
 \BOOKMARK [1][-]{section.2}{Obliczanie etykiet}{}% 2
 \BOOKMARK [1][-]{section.3}{Liczba \233uk\363w powrotnych}{}% 3
 \BOOKMARK [1][-]{section.4}{Czasy zliczania \233uk\363w powrotnych}{}% 4
+\BOOKMARK [1][-]{section.5}{Por\363wnania poznanych reprezentacji grafu \(macierzy sasiedztwa, listy nastepnik\363w, listy poprzednik\363w, listy \233uk\363w, macierzy incydencji\)}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Z\233ozonosc pamieciowa.}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Test \233uku.}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.3}{Sprawdzanie nastepnik\363w.}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.4}{Sprawdzanie poprzednik\363w.}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.5}{Zbi\363r \233uk\363w.}{section.5}% 10

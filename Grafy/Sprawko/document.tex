@@ -47,6 +47,8 @@
 
 \section{Opis implementacji }
 
+Do implementacji wybranych struktur danych uzyliśmy języka C++, a do pomiarów czasu klasy std :: chrono :: high\_resolution\_clock z biblioteki < chrono >.
+
 \section{Obliczanie etykiet}
 	%%WYKRES OBLICZANIA ETYKIET
 	\begin{figure}[H]
@@ -232,7 +234,22 @@ coordinates {
 	\end{axis}
 	\end{tikzpicture}
 \end{figure}
+\section{Porównania poznanych reprezentacji grafu (macierzy sąsiedztwa, listy następników, listy poprzedników, listy łuków, macierzy incydencji)}
 
+\subsection{Złożoność pamięciowa.}
+Ze wszystkich poznanych struktur najmniej miejsca zajmuje lista łuków O(m), następnie lista poprzedników oraz następników O(n+m). Większe zapotrzebowanie na ten zasób ma macierz sąsiedztwa O(n$^2$). Najgorzej wypada macierz incydencji O(n*m), pomimo tak dużych wymagań ma ona jednak dość dużą zaletę, tylko ta forma będzie potrafiła w pełni zaprezentować hipergraf. Jednakże w przypadku grafów rzadkich będzie to duża wada.
+
+\subsection{Test łuku.}
+Najszybszą pod tym względem okazuje się macierz grafu O(1), dzięki sprawdzaniu tylko jednej wartości w strukturze. Drugą pod tym względem jest lista łuków i macierz incydencji O(m). Słabiej pod tym względem wypada lista następników i poprzedników O(n). 
+
+\subsection{Sprawdzanie następników.}
+Najbardziej wydajną okazuje się lista następników i macierz grafu O(n). Warto by dodać, że dla tylko dla przypadku pesymistycznego czas tych dwóch struktur jest taki sam, w każdym innym lista następników jest szybsza. Wolniejsze okazuje się lista łuków i lista poprzedników z kolejno O(m) i O(n+m). Najwolniejsza okazuje się macierz incydencji O(n*m).
+
+\subsection{Sprawdzanie poprzedników.}
+Najlepszą reprezentacją do tego testu okazuje się lista poprzedników O(n). Drugą co do wydajności jest macierz sąsiedztwa. Wolniejsza okazuje się lista łuków O(m) oraz lista następników O(n+m). Po raz kolejny najmniej wydają okazuje się macierz incydencji O(m*n).
+
+\subsection{Zbiór łuków.}
+Optymalną strukturom do tego testu okazuje się lista łuków O(m).  Druga co do  wydajności jest lista następników i poprzedników O(m+n). Bardzo słabo wypada macierz sąsiedztwa O(n$^2$). Najgorzej jednak z tym zadaniem radzi sobie macierz incydencji O(n*m).
 	\newpage
 	\tableofcontents
 \end{document}
