@@ -100,6 +100,8 @@
 		\end{tikzpicture}
 	\end{figure}
 	
+Metoda sortowania topologicznego opiera się na algorytmie DFS – przeszukiwania w głąb. Algorytm ten polega na odwiedzeniu wszystkich wierzchołków. W pierwszej kolejności wybiera on wierzchołki o najmniejszym możliwym numerze względem całej ścieżki, jaka już przebyliśmy. Jeżeli nie ma już dostępnych wierzchołków, kończy ścieżkę. Następnie z wszystkich dostępnych wierzchołków wybiera ten najmniejszy nieodwiedzony i powtarza algorytm. Kończy się on, gdy wszystkie wierzchołki zostały odwiedzone. Złożoność obliczeniowa w tym przypadku to O(n+m). Efektywność algorytmu DFS zależy od reprezentacji grafu. Najczęściej wykonywaną operacją przez ten algorytm jest przeszukiwanie listy poprzedników w celu znalezienia kolejnego wierzchołka. Wynika z tego, że najkorzystniejszą strukturą będzie lista następników, następnie macierz sąsiedztwa, dla których złożoność będzie wynosiła O(n). Mniej do tego algorytmu nadaje się lista łuków i lista poprzedników, dla których złożoność wynosi kolejno O(m) i O(n+m). Najmniej korzystną strukturą jest macierz incydencji, dla której ta operacja może trwać O(n*m). Duży wpływ na czas trwania tej operacji ma również gęstość grafu. Im ten jest gęstszy, tym algorytm musi sprawdzić większą ilość wierzchołków, czego wynikiem jest dłuższy czas pracy.
+	
 \section{Liczba łuków powrotnych}
 
 \section{Czasy zliczania łuków powrotnych}
