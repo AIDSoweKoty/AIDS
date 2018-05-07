@@ -36,7 +36,7 @@
 		\vspace*{\fill}
 		\begin{center}
 			{\Large Algorytmy i struktury danych \\[0.1cm]
-				Sprawozdanie z zadania w zespołach nr. 2\\[0.1cm]
+				Sprawozdanie z zadania w zespołach nr. 3\\[0.1cm]
 				prowadząca: dr hab. inż. Małgorzata Sterna, prof PP}\\
 			{\Huge Algorytmy  Grafowe\\ [0.4cm]}
 			{\large autorzy:\\[0.1cm]}
@@ -53,6 +53,30 @@
 Do tworzenia grafu w trzech reprezentacjach (lista następników, macierz sąsiedztwa, lista łuków), zliczania łuków powrotnych i obliczania etykiet czasowych dla wierzchołków użyliśmy języka C++. Do pomiarów czasu wykorzystaliśmy klasę $std :: chrono :: high\_resolution\_clock$ z biblioteki $chrono$. Do implementacji procedury obliczającej etykiety czasowe rozpoczęcia i zakończenia analizy wierzchołków posłużyliśmy się listą następników. Przy wyborze reprezentacji grafu kierowaliśmy się czasem znalezienia zbioru następników, dlatego wybraliśmy listę następników ze względu na jej najniższą teoretyczną złożoność wyznaczenia następników O(n).  
 
 \section{Obliczanie etykiet}
+
+\begin{spacing}{1.5}
+	\begin{equation*}
+	\begin{array}{|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{$Liczba$}&\multicolumn{2}{c|}{$Czasy obliczania etykiet $[ms]}\\\cline{2-3}
+	\multicolumn{1}{|c|}{$wierzchołków$}&\multicolumn{1}{c|}{\quad d=0.2\quad}&\multicolumn{1}{|c|}{d=0.4}\\
+	\hline
+	200&2.172&4.841\\
+	400&7.830&15.622\\
+	600&17.860&38.984\\
+	800&31.477&72.013\\
+	1000&55.936&92.017\\
+	1200&70.922&135.757\\
+	1400&91.161&179.157\\
+	1600&117.204&265.713\\
+	1800&175.443&295.831\\
+	2000&183.787&367.042\\
+	2200&222.953&616.094\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+
 	%%WYKRES OBLICZANIA ETYKIET
 	\begin{figure}[H]
 	
@@ -106,32 +130,8 @@ Do tworzenia grafu w trzech reprezentacjach (lista następników, macierz sąsie
 		\end{tikzpicture}
 	\end{figure}
 
-	
-\begin{spacing}{1.5}
-	\begin{equation*}
-\begin{array}{|r|r|r|}
-\hline
-\multicolumn{1}{|c|}{$Liczba$}&\multicolumn{2}{c|}{$Czasy obliczania etykiet $[ms]}\\\cline{2-3}
-\multicolumn{1}{|c|}{$wierzchołków$}&\multicolumn{1}{c|}{\quad d=0.2\quad}&\multicolumn{1}{|c|}{d=0.4}\\
-\hline
-200&2.172&4.841\\
-400&7.830&15.622\\
-600&17.860&38.984\\
-800&31.477&72.013\\
-1000&55.936&92.017\\
-1200&70.922&135.757\\
-1400&91.161&179.157\\
-1600&117.204&265.713\\
-1800&175.443&295.831\\
-2000&183.787&367.042\\
-2200&222.953&616.094\\
-\hline
-\end{array}
-\end{equation*}
-\end{spacing}
-	
 		
-Metoda sortowania topologicznego opiera się na algorytmie DFS – przeszukiwania w głąb. Algorytm ten polega na odwiedzeniu wszystkich wierzchołków. W pierwszej kolejności wybiera on wierzchołki o najmniejszym możliwym numerze względem całej ścieżki, jaką już przebył. Jeżeli nie ma już dostępnych wierzchołków, to kończy ścieżkę. Następnie ze wszystkich dostępnych wierzchołków wybiera ten najmniejszy nieodwiedzony i powtarza algorytm. Kończy się on natomiast , gdy wszystkie wierzchołki zostały odwiedzone. Złożoność obliczeniowa w tym przypadku to O(n+m). Efektywność algorytmu DFS zależy od reprezentacji grafu. Najczęściej wykonywaną operacją przez ten algorytm jest przeszukiwanie listy poprzedników w celu znalezienia kolejnego wierzchołka. Wynika z tego, że najkorzystniejszą strukturą będzie lista następników, następnie macierz sąsiedztwa, dla których złożoność będzie wynosiła O(n). Mniej do tego algorytmu nadaje się lista łuków i lista poprzedników, dla których złożoność wynosi kolejno O(m) i O(n+m). Najmniej korzystną strukturą jest macierz incydencji, dla której ta operacja może trwać O(n*m). Duży wpływ na czas trwania tej operacji ma równie gęstość grafu. Im ten jest gęstszy, tym algorytm musi sprawdzić większą ilość wierzchołków, czego konsekwencją jest dłuższy czas pracy.
+Metoda sortowania topologicznego opiera się na algorytmie DFS – przeszukiwania w głąb. Algorytm ten polega na odwiedzeniu wszystkich wierzchołków. W pierwszej kolejności wybiera on wierzchołki o najmniejszym możliwym numerze względem całej ścieżki, jaką już przebył, jeżeli nie ma już dostępnych wierzchołków to kończy ścieżkę. Następnie ze wszystkich dostępnych wierzchołków wybiera ten najmniejszy nieodwiedzony i powtarza algorytm. Kończy się on natomiast , gdy wszystkie wierzchołki zostały odwiedzone. Złożoność obliczeniowa w tym przypadku to O(n+m). Efektywność algorytmu DFS zależy od reprezentacji grafu. Najczęściej wykonywaną operacją przez ten algorytm jest przeszukiwanie listy poprzedników w celu znalezienia kolejnego wierzchołka. Wynika z tego, że najkorzystniejszą strukturą będzie lista następników, następnie macierz sąsiedztwa, dla których złożoność będzie wynosiła O(n). Mniej do tego algorytmu nadaje się lista łuków i lista poprzedników, dla których złożoność wynosi kolejno O(m) i O(n+m). Najmniej korzystną strukturą jest macierz incydencji, dla której ta operacja może trwać O(n*m). Duży wpływ na czas trwania tej operacji ma równie gęstość grafu. Im ten jest gęstszy, algorytm musi sprawdzić większą ilość wierzchołków, czego konsekwencją jest dłuższy czas pracy.
 	
 \section{Liczba łuków powrotnych}
 
@@ -166,6 +166,29 @@ Wierzchołki w każdym grafie acyklicznym skierowanym można posortować na co n
 
 
 \section{Czasy zliczania łuków powrotnych}
+\subsection{Prezentacja wyników dla grafu o gęstości $d=0.2$}
+\begin{spacing}{1.5}
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{$Liczba$}&	\multicolumn{3}{c|}{$Czasy zlicznia w grafie o $d=0.2$ $[ms]}\\\cline{2-4}
+	\multicolumn{1}{|c|}{$wierzchołków$}&\multicolumn{1}{c|}{$Macierz sąsiedztwa$}&\multicolumn{1}{c|}{$Lista następników$}&\multicolumn{1}{c|}{$Lista łuków$}\\\hline
+	200&0.256&0.370&0.341\\
+	400&0.867&1.280&2.451\\
+	600&1.837&2.924&2.934\\
+	800&3.232&5.170&4.996\\
+	1000&4.986&7.363&7.198\\
+	1200&7.699&11.285&11.526\\
+	1400&9.860&14.333&15.494\\
+	1600&12.549&19.035&19.957\\
+	1800&16.112&26.807&31.353\\
+	2000&19.719&30.530&32.027\\
+	2200&24.805&37.193&40.884\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+
 %WYKRES DLA 0.2
 	\begin{figure}[H]
 	\centering
@@ -229,21 +252,27 @@ coordinates {
 	\end{tikzpicture}
 \end{figure}
 
+\subsection{Prezentacja wyników dla grafu o gęstości $d=0.4$}
+
 \begin{spacing}{1.5}
 	\begin{equation*}
-		\begin{array}{|r|r|r|r|}
-		200&0.256&0.370&0.341\\
-		400&0.867&1.280&2.451\\
-		600&1.837&2.924&2.934\\
-		800&3.232&5.170&4.996\\
-		1000&4.986&7.363&7.198\\
-		1200&7.699&11.285&11.526\\
-		1400&9.860&14.333&15.494\\
-		1600&12.549&19.035&19.957\\
-		1800&16.112&26.807&31.353\\
-		2000&19.719&30.530&32.027\\
-		2200&24.805&37.193&40.884\\
-		\end{array}
+	\begin{array}{|r|r|r|r|}
+		\hline
+	\multicolumn{1}{|c|}{$Liczba$}&	\multicolumn{3}{c|}{$Czasy zlicznia w grafie o $d=0.4$ $[ms]}\\\cline{2-4}
+	\multicolumn{1}{|c|}{$wierzchołków$}&\multicolumn{1}{c|}{$Macierz sąsiedztwa$}&\multicolumn{1}{c|}{$Lista następników$}&\multicolumn{1}{c|}{$Lista łuków$}\\\hline
+	200&0.403&0.873&0.758\\
+	400&1.320&3.141&2.727\\
+	600&2.945&5.497&5.801\\
+	800&5.242&9.379&9.473\\
+	1000&8.132&14.965&17.002\\
+	1200&12.375&21.315&21.404\\
+	1400&15.673&29.834&34.082\\
+	1600&20.920&38.461&43.678\\
+	1800&25.759&49.943&55.228\\
+	2000&32.119&60.332&73.463\\
+	2200&53.422&96.386&96.399\\
+	\hline
+	\end{array}
 	\end{equation*}
 \end{spacing}
 
@@ -312,23 +341,19 @@ coordinates {
 	\end{tikzpicture}
 \end{figure}
 
-\begin{spacing}{1.5}
-	\begin{equation*}
-	\begin{array}{|r|r|r|r|}
-	200&0.403&0.873&0.758\\
-	400&1.320&3.141&2.727\\
-	600&2.945&5.497&5.801\\
-	800&5.242&9.379&9.473\\
-	1000&8.132&14.965&17.002\\
-	1200&12.375&21.315&21.404\\
-	1400&15.673&29.834&34.082\\
-	1600&20.920&38.461&43.678\\
-	1800&25.759&49.943&55.228\\
-	2000&32.119&60.332&73.463\\
-	2200&53.422&96.386&96.399\\
-	\end{array}
-	\end{equation*}
-\end{spacing}
+\subsection{Wnioski}
+
+Operacja zliczania łuków powrotnych sprawdza dla każdego łuku $ (u,v) $ w grafie czy jest spełniony warunek $b[v]<b[u]<f[u]<f[v]$, gdzie $b[x]$ i $f[x]$ to etykiety rozpoczęcia i zakończenia analizy wierzchołka $x$ obliczone przez algorytm sortowania.
+
+Teoretycznie najlepszą reprezentacja grafu do zliczania łuków powrotnych powinna być lista łuków, ponieważ zapewnia najszybszy dostęp do każdego łuku, przy złożoności przeglądania zbioru łuków $ O(m) $. Najgorszym wyborem powinna być macierz sąsiedztwa, gdzie operacja przeglądania zbioru łuków, ma największą złożoność ze wszystkich badanych reprezentacji $  O(n^2) $, ponieważ w tej reprezentacji trzeba sprawdzić nie tylko istniejące łuki, ale wszystkie możliwe.
+
+Z przeprowadzonych badań wynika, że najlepszą reprezentacją grafu, do zliczania łuków powrotnych, jest macierz sąsiedztwa, mimo swojej teoretycznie największej złożoności przeszukiwania zbioru łuków. Stało się tak dlatego, że ta reprezentacja ma formę tablicy dwuwymiarowej, gdzie do wierzchołków odwołujemy się za pomocą indeksów, co jest szybsze od odwoływania się po wskaźniku jak w pozostałych reprezentacjach.
+Mimo większej złożoności przeszukiwania zbioru łuków ( $O(n+m)$ ) od listy łuków, szybsza okazała się lista następników, najprawdopodobniej dlatego, że lista łuków przechowywana jest w liście, a lista następników w tablicy list, przez co w tej reprezentacji do pierwszego wierzchołka możemy dostać się po indeksie, a nie po wskaźniku.
+
+Można zauważyć, że wraz z wzrostem gęstości grafu różnica między czasem zliczania łuków w macierzy, do reszty reprezentacji, pogłębia się ponieważ przy większej gęstości musimy wykonać więcej operacji porównań, przy czym odwołać się do większej liczby wskaźników.
+
+Warto również wspomnieć, że przy grafie o gęstości $d=1$ przeglądanie zbioru łuków w każdej reprezentacji miało by złożoność $O(n^2)$, a różnice w czasie zliczania łuków powrotnych wynikały by tylko z czasu odwołania się do poszczególnych wierzchołków.
+
 
 \section{Porównania poznanych reprezentacji grafu (macierzy sąsiedztwa, listy następników, listy poprzedników, listy łuków, macierzy incydencji)}
 
