@@ -50,7 +50,7 @@
 
 \section{Opis implementacji }
 
-Do tworzenia grafu w trzech reprezentacjach (lista następników, macierz sąsiedztwa, lista łuków), zliczania łuków powrotnych i obliczania etykiet czasowych dla wierzchołków użyliśmy języka C++. Do pomiarów czasu wykorzystaliśmy klasę $std :: chrono :: high\_resolution\_clock$ z biblioteki $chrono$. Do implementacji procedury obliczającej etykiety czasowe rozpoczęcia i zakończenia analizy wierzchołków posłużyliśmy się listą następników. Przy wyborze reprezentacji grafu kierowaliśmy się czasem znalezienia zbioru następników, dlatego wybraliśmy listę następników ze względu na jej najniższą teoretyczną złożoność wyznaczenia następników O(n).  
+Do tworzenia grafu w trzech reprezentacjach (lista następników, macierz sąsiedztwa, lista łuków), zliczania łuków powrotnych i obliczania etykiet czasowych dla wierzchołków użyliśmy języka C++. Do pomiarów czasu wykorzystaliśmy klasę $std :: chrono :: high\_resolution\_clock$ z biblioteki $chrono$. Do implementacji procedury obliczającej etykiety czasowe rozpoczęcia i zakończenia analizy wierzchołków posłużyliśmy się listą następników. Przy wyborze reprezentacji grafu kierowaliśmy się czasem znalezienia zbioru następników dla wierzchołka, dlatego wybraliśmy listę następników ze względu na to, że ta reprezentacja ma najniższą złożoność obliczeniową dla przeszukiwania zbioru następników $O(n)$.  
 
 \section{Obliczanie etykiet}
 
@@ -131,7 +131,11 @@ Do tworzenia grafu w trzech reprezentacjach (lista następników, macierz sąsie
 	\end{figure}
 
 		
-Metoda sortowania topologicznego opiera się na algorytmie DFS – przeszukiwania w głąb. Algorytm ten polega na odwiedzeniu wszystkich wierzchołków. W pierwszej kolejności wybiera on wierzchołki o najmniejszym możliwym numerze względem całej ścieżki, jaką już przebył, jeżeli nie ma już dostępnych wierzchołków to kończy ścieżkę. Następnie ze wszystkich dostępnych wierzchołków wybiera ten najmniejszy nieodwiedzony i powtarza algorytm. Kończy się on natomiast , gdy wszystkie wierzchołki zostały odwiedzone. Złożoność obliczeniowa w tym przypadku to O(n+m). Efektywność algorytmu DFS zależy od reprezentacji grafu. Najczęściej wykonywaną operacją przez ten algorytm jest przeszukiwanie listy poprzedników w celu znalezienia kolejnego wierzchołka. Wynika z tego, że najkorzystniejszą strukturą będzie lista następników, następnie macierz sąsiedztwa, dla których złożoność będzie wynosiła O(n). Mniej do tego algorytmu nadaje się lista łuków i lista poprzedników, dla których złożoność wynosi kolejno O(m) i O(n+m). Najmniej korzystną strukturą jest macierz incydencji, dla której ta operacja może trwać O(n*m). Duży wpływ na czas trwania tej operacji ma równie gęstość grafu. Im ten jest gęstszy, algorytm musi sprawdzić większą ilość wierzchołków, czego konsekwencją jest dłuższy czas pracy.
+Metoda sortowania topologicznego opiera się na algorytmie DFS (przeszukiwania w głąb). Algorytm ten polega na odwiedzeniu wszystkich wierzchołków. W pierwszej kolejności wybiera on wierzchołki o najmniejszym możliwym numerze względem ścieżki jaką już przebył, jeżeli nie ma już dostępnych wierzchołków to kończy ścieżkę. Następnie ze wszystkich dostępnych wierzchołków wybiera ten najmniejszy nieodwiedzony i powtarza algorytm. Kończy się on gdy wszystkie wierzchołki zostały odwiedzone. Złożoność czasowa algorytmu jest uzależniona od liczby wierzchołków oraz liczby krawędzi, w tym przypadku to $ O(n+m) $. Efektywność algorytmu DFS zależy od reprezentacji grafu. 
+
+Najczęściej wykonywaną operacją przez ten algorytm jest przeszukiwanie zbioru następników w celu znalezienia kolejnego wierzchołka. Wynika z tego, że najkorzystniejszą strukturą będzie lista następników, dla której złożoność będzie wynosiła $ O(n) $. Mniej do tego algorytmu nadaje się lista łuków i lista poprzedników, dla których złożoność wynosi kolejno $ O(m) $ i $ O(n+m) $. Najmniej korzystną strukturą jest macierz incydencji, dla której ta operacja może trwać $ O(n*m) $. 
+
+Duży wpływ na czas trwania tej operacji ma równie gęstość grafu. Im ten jest gęstszy, algorytm musi sprawdzić większą ilość wierzchołków, czego konsekwencją jest dłuższy czas pracy. Wpływ gęstości na czas działania algorytmu zależy od wykorzystanej reprezentacji grafu, najsilniej widoczny powinien być widoczny dla macierzy incydencji, gdzie dla grafu pełnego $m$ osiągnie wartość $n^2$, a złożoność $O(n^3)$. Najmniejszy wpływ gęstość powinna mieć na macierz sąsiedztwa, gdzie w celu znalezienia następnika dla wierzchołka zawsze należy sprawdzić nie tylko istniejące łuki ale wszystkie możliwe.
 	
 \section{Liczba łuków powrotnych}
 
@@ -156,7 +160,6 @@ Metoda sortowania topologicznego opiera się na algorytmie DFS – przeszukiwani
 	\hline
 	\end{array}
 	\end{equation*}
-	\captionof{table}{Tabela prezentująca liczbę łuków powrotnych w grafach}
 \end{spacing}
 
 Wszystkie wygenerowane grafy były cykliczne, ponieważ posiadały łuki powrotne. Gdyby któryś z wygenerowanych grafów nie posiadał łuków powrotnych byłby acykliczny. Grafy o dwa razy większej gęstości miały dwa razy więcej łuków powrotnych. Wraz z wzrostem liczby wierzchołków w grafach rosła ilość łuków powrotnych.
@@ -243,7 +246,7 @@ coordinates {
 
 };
 	\legend{
-		macierz grafu,
+		macierz sąsiedztwa,
 		lista następników,
 		lista łuków,
 	}
@@ -332,7 +335,7 @@ coordinates {
 
 	};
 	\legend{
-		macierz grafu,
+		macierz sąsiedztwa,
 		lista następników,
 		lista łuków,
 	}
@@ -348,7 +351,7 @@ Operacja zliczania łuków powrotnych sprawdza dla każdego łuku $ (u,v) $ w gr
 Teoretycznie najlepszą reprezentacja grafu do zliczania łuków powrotnych powinna być lista łuków, ponieważ zapewnia najszybszy dostęp do każdego łuku, przy złożoności przeglądania zbioru łuków $ O(m) $. Najgorszym wyborem powinna być macierz sąsiedztwa, gdzie operacja przeglądania zbioru łuków, ma największą złożoność ze wszystkich badanych reprezentacji $  O(n^2) $, ponieważ w tej reprezentacji trzeba sprawdzić nie tylko istniejące łuki, ale wszystkie możliwe.
 
 Z przeprowadzonych badań wynika, że najlepszą reprezentacją grafu, do zliczania łuków powrotnych, jest macierz sąsiedztwa, mimo swojej teoretycznie największej złożoności przeszukiwania zbioru łuków. Stało się tak dlatego, że ta reprezentacja ma formę tablicy dwuwymiarowej, gdzie do wierzchołków odwołujemy się za pomocą indeksów, co jest szybsze od odwoływania się po wskaźniku jak w pozostałych reprezentacjach.
-Mimo większej złożoności przeszukiwania zbioru łuków ( $O(n+m)$ ) od listy łuków, szybsza okazała się lista następników, najprawdopodobniej dlatego, że lista łuków przechowywana jest w liście, a lista następników w tablicy list, przez co w tej reprezentacji do pierwszego wierzchołka możemy dostać się po indeksie, a nie po wskaźniku.
+Mimo większej złożoności przeszukiwania zbioru łuków  $O(n+m)$  od listy łuków, szybsza okazała się lista następników, najprawdopodobniej dlatego, że lista łuków przechowywana jest w liście, a lista następników w tablicy list, przez co w tej reprezentacji do pierwszego wierzchołka możemy dostać się po indeksie, a nie po wskaźniku.
 
 Można zauważyć, że wraz z wzrostem gęstości grafu różnica między czasem zliczania łuków w macierzy, do reszty reprezentacji, pogłębia się ponieważ przy większej gęstości musimy wykonać więcej operacji porównań, przy czym odwołać się do większej liczby wskaźników.
 
@@ -360,19 +363,19 @@ Warto również wspomnieć, że przy grafie o gęstości $d=1$ przeglądanie zbi
 
 
 \subsection{Złożoność pamięciowa.}
-Ze wszystkich poznanych struktur najmniej miejsca zajmuje lista łuków O(m), następnie lista poprzedników oraz następników O(n+m). Większe zapotrzebowanie na ten zasób ma macierz sąsiedztwa O(n$^2$). Najgorzej wypada macierz incydencji O(n*m), pomimo tak dużych wymagań ma ona jednak dość dużą zaletę, tylko ta forma będzie potrafiła w pełni zaprezentować hipergraf. Jednakże w przypadku grafów rzadkich będzie to duża wada.
+Ze wszystkich poznanych struktur najmniej miejsca zajmuje lista łuków $ O(m) $, następnie lista poprzedników oraz następników $ O(n+m) $. Większe zapotrzebowanie na ten zasób ma macierz sąsiedztwa $ O(n^2) $. Najgorzej wypada macierz incydencji $ O(n \cdot m) $, pomimo tak dużych wymagań ma ona jednak dość dużą zaletę, tylko ta forma będzie potrafiła w pełni zaprezentować hipergraf. Jednakże w przypadku grafów rzadkich będzie to duża wada.
 
 \subsection{Test łuku.}
-Najszybszą pod tym względem okazuje się macierz grafu O(1), dzięki sprawdzaniu tylko jednej wartości w strukturze. Drugą pod tym względem jest lista łuków i macierz incydencji O(m). Słabiej pod tym względem wypada lista następników i poprzedników O(n). 
+Najszybszą pod tym względem okazuje się macierz grafu $ O(1) $, dzięki sprawdzaniu tylko jednej wartości w strukturze. Drugą pod tym względem jest lista łuków i macierz incydencji $ O(m) $. Słabiej pod tym względem wypada lista następników i poprzedników $ O(n) $. 
 
 \subsection{Sprawdzanie następników.}
-Najbardziej wydajną okazuje się lista następników i macierz grafu O(n). Warto by dodać, że dla tylko dla przypadku pesymistycznego czas tych dwóch struktur jest taki sam, w każdym innym lista następników jest szybsza. Wolniejsze okazuje się lista łuków i lista poprzedników z kolejno O(m) i O(n+m). Najwolniejsza okazuje się macierz incydencji O(n*m).
+Najbardziej wydajną okazuje się lista następników i macierz grafu $ O(n) $. Warto by dodać, że dla tylko dla przypadku pesymistycznego czas tych dwóch struktur jest taki sam, w każdym innym lista następników jest szybsza. Wolniejsze okazuje się lista łuków i lista poprzedników z kolejno $ O(m) $ i $ O(n+m) $. Najwolniejsza okazuje się macierz incydencji $ O(n \cdot m) $.
 
 \subsection{Sprawdzanie poprzedników.}
-Najlepszą reprezentacją do tego testu okazuje się lista poprzedników O(n). Drugą co do wydajności jest macierz sąsiedztwa. Wolniejsza okazuje się lista łuków O(m) oraz lista następników O(n+m). Po raz kolejny najmniej wydają okazuje się macierz incydencji O(m*n).
+Najlepszą reprezentacją do tego testu okazuje się lista poprzedników $ O(n) $. Drugą co do wydajności jest macierz sąsiedztwa. Wolniejsza okazuje się lista łuków $ O(m) $ oraz lista następników $ O(n+m) $. Po raz kolejny najmniej wydają okazuje się macierz incydencji $ O(m \cdot n) $.
 
 \subsection{Zbiór łuków.}
-Optymalną strukturom do tego testu okazuje się lista łuków O(m).  Druga co do  wydajności jest lista następników i poprzedników O(m+n). Bardzo słabo wypada macierz sąsiedztwa O(n$^2$). Najgorzej jednak z tym zadaniem radzi sobie macierz incydencji O(n*m).
+Optymalną strukturom do tego testu okazuje się lista łuków $ O(m) $.  Druga co do  wydajności jest lista następników i poprzedników $ O(m+n) $. Bardzo słabo wypada macierz sąsiedztwa $ O(n^2) $. Najgorzej jednak z tym zadaniem radzi sobie macierz incydencji $ O(n \cdot m) $.
 
 
 \end{spacing}
