@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.26)  7 MAY 2018 20:10
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.26)  7 MAY 2018 21:03
->>>>>>> 0026
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.12.26)  8 MAY 2018 10:34
 entering extended mode
 **./document.tex
 (document.tex
@@ -1228,19 +1224,11 @@ Package rerunfilecheck Info: File `document.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 381.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 28290 strings out of 493312
- 670465 string characters out of 3138898
- 854401 words of memory out of 3000000
- 31359 multiletter control sequences out of 15000+200000
- 31631 words of font info for 53 fonts, out of 3000000 for 9000
-=======
  28404 strings out of 493312
  672067 string characters out of 3138898
  844121 words of memory out of 3000000
  31448 multiletter control sequences out of 15000+200000
  50812 words of font info for 88 fonts, out of 3000000 for 9000
->>>>>>> 0026
  1141 hyphenation exceptions out of 8191
  62i,19n,96p,1414b,2343s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
@@ -1248,7 +1236,7 @@ KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 r8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (9 pages, 97739 bytes).
+Output written on document.pdf (9 pages, 97742 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  27 named destinations out of 1000 (max. 500000)
