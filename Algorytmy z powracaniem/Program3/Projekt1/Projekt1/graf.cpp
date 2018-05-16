@@ -3,6 +3,10 @@
 
 using namespace std;
 
+void graf::wylosujgrafEulera(float d) {
+	int m = 0.5f *( r * ( r- 1))
+};
+
 graf::graf(int r) {
 	this->czyZna = 0;
 	pom = new int[r];

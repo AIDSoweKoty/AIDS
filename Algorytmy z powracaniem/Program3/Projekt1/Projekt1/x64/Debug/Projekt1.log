@@ -1,3 +1,1 @@
-﻿  graf.cpp
-  Projekt1.vcxproj -> E:\git\AIDS\Algorytmy z powracaniem\Program3\Projekt1\x64\Debug\Projekt1.exe
-  Projekt1.vcxproj -> E:\git\AIDS\Algorytmy z powracaniem\Program3\Projekt1\x64\Debug\Projekt1.pdb (Partial PDB)
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Platforms\x64\PlatformToolsets\v140\Toolset.targets(36,5): error MSB8036: The Windows SDK version 10.0.15063.0 was not found. Install the required version of Windows SDK or change the SDK version in the project property pages or by right-clicking the solution and selecting "Retarget solution".

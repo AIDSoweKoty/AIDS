@@ -86,5 +86,6 @@ public:
 	void obwodEulera(); 
 	void wypiszObwodEulera();
 	void pojedynczyCyklHamiltona(int a = 0);
+	void wylosujgrafEulera(float d);
 };
 

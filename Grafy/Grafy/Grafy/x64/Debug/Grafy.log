@@ -1,2 +1,8 @@
-﻿  Grafy.vcxproj -> C:\Users\Piotr\Documents\GitHub\ASID-laboratoria\Grafy\Grafy\x64\Debug\Grafy.exe
-  Grafy.vcxproj -> C:\Users\Piotr\Documents\GitHub\ASID-laboratoria\Grafy\Grafy\x64\Debug\Grafy.pdb (Partial PDB)
+﻿  Source.cpp
+  list.cpp
+  LIFO.cpp
+  graf.cpp
+c:\users\piotr\documents\github\aids\grafy\grafy\grafy\graf.cpp(200): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Grafy.vcxproj -> C:\Users\Piotr\Documents\GitHub\AIDS\Grafy\Grafy\x64\Debug\Grafy.exe
+  Grafy.vcxproj -> C:\Users\Piotr\Documents\GitHub\AIDS\Grafy\Grafy\x64\Debug\Grafy.pdb (Partial PDB)
