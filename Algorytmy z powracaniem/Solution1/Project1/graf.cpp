@@ -51,14 +51,14 @@ void graf::wylosujgrafEulera(float d) {
 			}
 		}
 		int py = rand() % r;
-		while (w[px][py] ) {
+		while (w[px][py] || py == px) {
 			py = rand() % r;
 		}
 		w[px][py] = 1;
 		w[py][px] = 1;
 
 		x1 = rand() % r;
-		while (w[py][x1] || w[x1][px]) {
+		while (w[py][x1] || w[x1][px] || py == x1 || x1 == px) {
 			x1 = rand() % r;
 		}
 
