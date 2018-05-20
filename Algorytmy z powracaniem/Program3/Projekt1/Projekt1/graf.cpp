@@ -1,10 +1,17 @@
 #include "graf.h"
 #include <iostream>
+#include <random>
+#include <ctime>
+#include <cstdlib>
+#include <cstdio>
 
 using namespace std;
 
 void graf::wylosujgrafEulera(float d) {
-	int m = 0.5f *( r * ( r- 1))
+	srand(time(NULL));
+	int m =int(0.5f* d*(r * (r - 1)));
+	m = m - (m % 2);
+
 };
 
 graf::graf(int r) {

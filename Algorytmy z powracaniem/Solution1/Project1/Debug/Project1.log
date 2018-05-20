@@ -1,0 +1,3 @@
+﻿  graf.cpp
+c:\users\piotr\documents\github\aids\algorytmy z powracaniem\solution1\project1\graf.cpp(11): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+  Project1.vcxproj -> C:\Users\Piotr\Documents\GitHub\AIDS\Algorytmy z powracaniem\Solution1\Debug\Project1.exe
