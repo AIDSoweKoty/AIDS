@@ -19,7 +19,6 @@ int main() {
 	for (int i = 6; i <= 30; ++i) {
 		graf graf(i);
 		graf.wylosujgrafEulera(0.6f);
-
 			//czas szukania eulera dla 0.6
 		auto start = std::chrono::high_resolution_clock::now();
 		graf.obwodEulera();

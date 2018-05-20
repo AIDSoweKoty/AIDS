@@ -35,40 +35,58 @@ void graf::wylosujgrafEulera(float d) {
 	m = m - (m % 3) -3;
 
 	while (m > 0) {
-		int px = rand() % r;
+		papaj:
+//		cout << m << endl;
+		int a = rand() % r;
 		bool ok = false;
-		while (!ok) {
+		while (!ok){
 			int i = 0;
 			while (i < r ){
-				if (w[px][i]) {
+				if (w[a][i]) {
 					ok = true;
 					break;
 				}
 				if (!ok){
-					px = rand() % r;
+					a = rand() % r;
 				}
 				++i;
 			}
 		}
-		int py = rand() % r;
-		while (w[px][py] || py == px) {
-			py = rand() % r;
+//		cout << m << endl;
+		int b = rand()% r;
+		int pomocnik = 0;
+		while (w[b][a] || b == a) {
+			b = rand() % r;
+//			cout <<"b "<< b << endl;
+			++pomocnik;
+			if (pomocnik > 50) {
+				goto papaj;
+			}
 		}
-		w[px][py] = 1;
-		w[py][px] = 1;
 
-		x1 = rand() % r;
-		while (w[py][x1] || w[x1][px] || py == x1 || x1 == px) {
-			x1 = rand() % r;
+//		cout << m << endl;
+		int x = rand() % r;
+		int licznik = 0;
+		while (w[b][x] || w[a][x] || b == x || x == a) {
+//			cout <<" "<< x << " " << b << " " << a << endl;
+			x = rand() % r;
+			licznik++;
+			if (licznik > 50) {
+				goto papaj;
+			}
 		}
 
-		w[py][x1] = 1;
-		w[x1][py] = 1;
+		w[a][b] = 1;
+		w[b][a] = 1;
 
-		w[x1][px] = 1;
-		w[px][x1] = 1;
+		w[b][x] = 1;
+		w[x][b] = 1;
+
+		w[x][a] = 1;
+		w[a][x] = 1;
 			
 		m -= 3;
+//		Sleep(1000);
 	};
 
 
