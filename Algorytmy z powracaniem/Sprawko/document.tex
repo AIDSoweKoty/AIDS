@@ -1,0 +1,405 @@
+\documentclass[polish,polish,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{pslatex}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{anysize}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{color}
+\usepackage{subcaption}
+\usepackage[polish]{babel}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+}
+
+\marginsize{2.5cm}{2.5cm}{2cm}{2cm}
+
+
+\begin{document}
+	
+		\begin{titlepage}
+			\begin{flushright}
+				{ Wtorki 16:50\\
+					Grupa I3\\
+					Kierunek Informatyka\\
+					Wydział Informatyki\\
+					Politechnika Poznańska}
+			\end{flushright}
+		\vspace*{\fill}
+		\begin{center}
+			{\Large Algorytmy i struktury danych \\[0.1cm]
+				Sprawozdanie z zadania w zespołach nr. 4\\[0.1cm]
+				prowadząca: dr hab. inż. Małgorzata Sterna, prof PP}\\
+			{\Huge Algorytmy z powracaniem\\ [0.4cm]}
+			{\large autorzy:\\[0.1cm]}
+			{\large Piotr Więtczak nr indeksu 132339\\[0.1cm] Tomasz Chudziak nr indeksu 136691}\\[0.5cm]
+			\today
+		\end{center}
+		\vspace*{\fill}
+	\end{titlepage}
+
+\begin{spacing}{1.25}
+
+\section{Opis implementacji }
+ 
+ Do implementacji algorytmów poszukujących cyklu Eulera $(E)$, pojedynczego cyklu Hamiltona $(H1)$ i wszystkich cykli Hamiltona użyliśmy języka C++. Do pomiarów czasu wykorzystaliśmy klasę $std :: chrono :: high\_resolution\_clock$ z biblioteki $chrono$. Do reprezentacji grafu zastosowaliśmy macierz sąsiedztwa, ze względu na {\Huge \textcolor{red}{TU MI SIE TŁUMACZ CZEMU MACIERZ SĄSIEDZTWA}}.  
+
+\section{Czasy działania algorytmów}
+
+
+	%% TABELA CZASÓW DZIAŁANIA
+\begin{spacing}{1.5}
+	
+	{
+		\centering
+		\subsection*{Tabela przedstawiająca czasy działania algorytmów }
+	}
+	
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{$Liczba$}&
+	\multicolumn{1}{c|}{t_{E}$ dla$ }&
+	\multicolumn{1}{c|}{t_{H1} $ dla$}&
+	\multicolumn{1}{c|}{t_{HA}$ dla$}\\
+	\multicolumn{1}{|c|}{$wierzchołków$}&
+	\multicolumn{1}{c|}{d = 0.6 \quad [ms]}&
+	\multicolumn{1}{c|}{d = 0.6 \quad [ms]}&
+	\multicolumn{1}{c|}{d = 0.6 \quad [ms]}\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+
+
+	%%WYKRES Czasy działania algorytmów dla $d=0.6$
+	\begin{figure}[H]
+		\centering
+		\subsection*{Wykres przedstawiający czasy działania algorytmów dla $d=0.6$ }
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=0.9\textwidth,
+		height = 0.5\textwidth,
+		xlabel={Liczba wierzchołków},
+		ylabel={Czas działania w misekundach},
+		%
+		scaled x ticks = false,
+		xtick distance = 200,
+		x tick label style={/pgf/number format/fixed},
+		xticklabel style = {rotate= 90},
+		x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+		%%
+		ytick distance = 100,
+		scaled y ticks = false,
+		y tick label style={/pgf/number format/fixed},
+		y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+		%%
+		legend pos=north west,
+		ymajorgrids=true,
+		grid style=dashed,
+		]
+		%%
+		\addplot[
+		color=black,
+		mark=*,
+		]
+		coordinates {
+(200,2.172)(400,7.830)(600,17.860)(800,31.477)(1000,55.936)(1200,70.922)(1400,91.161)(1600,117.204)(1800,175.443)(2000,183.787)(2200,222.953)
+		};
+		%%
+		\addplot[
+		color=blue,
+		mark=triangle,
+		]
+		coordinates {
+(200,4.841)(400,15.622)(600,38.984)(800,72.013)(1000,92.017)(1200,135.757)(1400,179.157)(1600,265.713)(1800,295.831)(2000,367.042)(2200,616.094)
+
+		};
+		%%
+\addplot[
+color=red,
+mark=square,
+]
+coordinates {
+	(200,4.841)(400,15.622)(600,38.984)(800,72.013)(1000,92.017)(1200,135.757)(1400,179.157)(1600,265.713)(1800,295.831)(2000,367.042)(2200,616.094)
+	
+};
+		\legend{
+			$t_{E}=f(n)$,
+			$t_{H1} = f(n)$,
+			$t_{HA} = f(n)$,
+		}
+		%%
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	Problemy znajdowania cyklu Eulera i cyklu Hamiltona dotyczą przeszukiwania grafu.
+	
+	Znajdowanie cyklu Eulera należy do klasy problemów łatwych (P), czyli takich dla których potrafimy znaleźć algorytm rozwiązujący ten problem w czasie wielomianowym. 
+	
+	Znajdowanie cyklu Hamiltona należy do problemów NP-zupełnych, które są podklasą problemów trudnych (NP), dla problemów które należą do klasy NP nie znamy rozwiązań działających w czasie wielomianowym lub mniejszym, czyli są to zadania o o złożoności co najmniej wykładniczej. Do problemów NP-zupełnych transformują się wielomianowo wszystkie problem z klasy NP. Rozwiązując problem NP-zupełny rozwiązujemy wszystkie problemy z tej podklasy, dlatego znajdując rozwiązanie jednego takiego problemu w czasie wielomianowym, znajdziemy rozwiązanie wielomianowe dla wszystkich problemów NP-zupełnych.
+	
+	Złożoność obliczeniowa algorytmu znajdowania cyklu Eulera wynosi $O(m)$, gdzie m - liczba krawędzi, ponieważ podczas przeszukiwania grafu trzeba przejść po wszystkich krawędziach.
+	
+	Złożoność obliczeniowa algorytmu znajdowania pojedynczego cyklu Hamiltona wynosi $O(n!)$, gdzie n - liczba wierzchołków, ponieważ w najgorszym przypadku należy sprawdzić wszystkie możliwe permutacje, a dla wszystkich cykli $O(n \cdot n!)$ .
+	
+
+	
+\section{Czasy poszukiwania cyklu Eulera dla różnych wartości $d$}
+
+
+%%Tabela przedstawiająca $T_{E}$ dla różnych wartości $d$
+\begin{spacing}{1.5}
+	{
+		\centering
+		\subsection*{Tabela przedstawiająca $T_{E}$ dla różnych wartości $d$ }
+	}
+	\begin{equation*}
+	\begin{array}{|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{$Liczba$}&
+	\multicolumn{1}{c|}{t_{E} $ dla$}&
+	\multicolumn{1}{c|}{t_{E} $ dla$}\\
+	\multicolumn{1}{|c|}{$wierzchołków$}&
+	\multicolumn{1}{c|}{d = 0.2 \quad [ms]}&
+	\multicolumn{1}{c|}{d= 0.6\quad [ms]}\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+
+
+	%%WYKRES Tabela przedstawiająca $T_{E}$ dla różnych wartości $d$
+\begin{figure}[H]
+		\centering
+		\subsection*{Wykres przedstawiający $T_{E}$ dla różnych wartości $d$ }
+	\begin{tikzpicture}
+	\begin{axis}[
+	width=0.9\textwidth,
+	height = 0.5\textwidth,
+	xlabel={Liczba wierzchołków},
+	ylabel={Czas działania w misekundach},
+	%
+	scaled x ticks = false,
+	xtick distance = 200,
+	x tick label style={/pgf/number format/fixed},
+	xticklabel style = {rotate= 90},
+	x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+	%%
+	ytick distance = 100,
+	scaled y ticks = false,
+	y tick label style={/pgf/number format/fixed},
+	y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+	%%
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	%%
+	\addplot[
+	color=black,
+	mark=*,
+	]
+	coordinates {
+		(200,2.172)(400,7.830)(600,17.860)(800,31.477)(1000,55.936)(1200,70.922)(1400,91.161)(1600,117.204)(1800,175.443)(2000,183.787)(2200,222.953)
+	};
+	%%
+	\addplot[
+	color=blue,
+	mark=triangle,
+	]
+	coordinates {
+		(200,4.841)(400,15.622)(600,38.984)(800,72.013)(1000,92.017)(1200,135.757)(1400,179.157)(1600,265.713)(1800,295.831)(2000,367.042)(2200,616.094)
+		
+	};
+	\legend{
+		$d =0.2$,
+		$d= 0.6$,
+	}
+	%%
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+
+Metoda poszukiwania cyklu Eulera oparta jest na algorytmie DFS (przeszukiwanie w głąb), z tą różnicą że przegląda krawędzi zamiast wierzchołków. Do przedstawienia grafu użyto macierzy sąsiedztwa {\Huge \textcolor{red}{TU MI SIE TŁUMACZ CZEMU MACIERZ SĄSIEDZTWA I CZY REPREZENTACJA MA WPŁYW NA ZŁOŻONOŚĆ OBLICZONIOWĄ METODY}}.
+
+{\Huge \textcolor{red}{TUTAJ POPROSZĘ OPIS DZIAŁANIA ALGORYTMU ZGODZNIE Z IMPLEMENTACJĄ (MOZESZ UDAWAĆ ŻE TAKA BYŁA IMPLEMENTAJA) PRZYPOMNĘ TYLKO ŻE CHODZI O POSZUKIWANIE CYKLU EULERA, A NIE JAKIEGOŚ LOSOWEGO JAK OSTATNIO}}
+
+Warunek konieczny i dostateczny istnienia cyklu Eulera w grafie:
+\begin{spacing}{0.5}
+	\begin{itemize}
+		\item graf jest spójny,
+		\item dla grafu nieskierowanego, wszystkie wierzchołki są stopnia parzystego,
+		\item dla grafu skierowanego, taka sama liczba krawędzi wchodzących i wychodzących dla każdego wierzchołka.
+	\end{itemize}
+\end{spacing}
+
+W testowanych grafach istniał cykl Eulera ponieważ zostały one wygenerowane odpowiednią metodą.
+Opierała się ona na tworzeniu klik o rozmiarze 3, po stworzeniu pierwszej wybierany był losowy należący do grafu wierzchołek, oraz losowano dwa nie należące do grafu wierzchołki, z tych trzech wierzchołków do grafu dołączana była nowa klika. Dołączanie nowych klik trwało aż do osiągnięcia pożądanej gęstości.
+
+{\huge zachowanie}
+
+
+
+
+\section{Czasy poszukiwania pojedynczego i wszystkich cykli Hamiltona dla różnych wartości $d$}
+
+
+%%Tabela prezentująca $t_{H1}$ i $t_{HA}$ dla różnych wartości d
+\begin{spacing}{1.5}
+	{\centering \subsection*{Tabela prezentująca $t_{H1}$ i $t_{HA}$ dla różnych wartości d}}
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{$Liczba$}&
+	\multicolumn{2}{c|}{d = 0.2}&
+	\multicolumn{2}{c|}{d = 0.6}\\\cline{2-5}
+	\multicolumn{1}{|c|}{$wierzchołków$}&
+	\multicolumn{1}{c|}{t_{H1} \quad [ms]}&
+	\multicolumn{1}{c|}{t_{HA} \quad [ms]}&
+	\multicolumn{1}{c|}{t_{H1} \quad [ms]}&
+	\multicolumn{1}{c|}{t_{HA} \quad [ms]}\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+
+
+	%%Wykres przedstawiający $t_{H1}$ dla różnych wartości d
+\begin{figure}[H]
+	
+	\centering \subsection*{Wykres przedstawiający $t_{H1}$ dla różnych wartości d}
+	\begin{tikzpicture}
+	\begin{axis}[
+	width=0.9\textwidth,
+	height = 0.5\textwidth,
+	xlabel={Liczba wierzchołków},
+	ylabel={Czas działania w misekundach},
+	%
+	scaled x ticks = false,
+	xtick distance = 200,
+	x tick label style={/pgf/number format/fixed},
+	xticklabel style = {rotate= 90},
+	x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+	%%
+	ytick distance = 100,
+	scaled y ticks = false,
+	y tick label style={/pgf/number format/fixed},
+	y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+	%%
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	%%
+	\addplot[
+	color=black,
+	mark=*,
+	]
+	coordinates {
+		(200,2.172)(400,7.830)(600,17.860)(800,31.477)(1000,55.936)(1200,70.922)(1400,91.161)(1600,117.204)(1800,175.443)(2000,183.787)(2200,222.953)
+	};
+	%%
+	\addplot[
+	color=blue,
+	mark=triangle,
+	]
+	coordinates {
+		(200,4.841)(400,15.622)(600,38.984)(800,72.013)(1000,92.017)(1200,135.757)(1400,179.157)(1600,265.713)(1800,295.831)(2000,367.042)(2200,616.094)
+		
+	};
+	\legend{
+		$d =0.2$,
+		$d= 0.6$,
+	}
+	%%
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+		%%WYKRES Tabela prezentująca  $t_{HA}$ dla różnych wartości d
+	\begin{figure}[H]
+		
+		\centering \subsection*{Tabela prezentująca  $t_{HA}$ dla różnych wartości d}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=0.9\textwidth,
+		height = 0.5\textwidth,
+		xlabel={Liczba wierzchołków},
+		ylabel={Czas działania w misekundach},
+		%
+		scaled x ticks = false,
+		xtick distance = 200,
+		x tick label style={/pgf/number format/fixed},
+		xticklabel style = {rotate= 90},
+		x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+		%%
+		ytick distance = 100,
+		scaled y ticks = false,
+		y tick label style={/pgf/number format/fixed},
+		y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+		%%
+		legend pos=north west,
+		ymajorgrids=true,
+		grid style=dashed,
+		]
+		%%
+		\addplot[
+		color=black,
+		mark=*,
+		]
+		coordinates {
+			(200,2.172)(400,7.830)(600,17.860)(800,31.477)(1000,55.936)(1200,70.922)(1400,91.161)(1600,117.204)(1800,175.443)(2000,183.787)(2200,222.953)
+		};
+		%%
+		\addplot[
+		color=blue,
+		mark=triangle,
+		]
+		coordinates {
+			(200,4.841)(400,15.622)(600,38.984)(800,72.013)(1000,92.017)(1200,135.757)(1400,179.157)(1600,265.713)(1800,295.831)(2000,367.042)(2200,616.094)
+			
+		};
+		\legend{
+			$d =0.2$,
+			$d= 0.6$,
+		}
+		%%
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+%%Tabela prezentująca liczbę cykli Hamiltona dla różnych wartości d
+\begin{spacing}{1.5}
+	{\centering \subsection*{Tabela prezentująca liczbę cykli Hamiltona dla różnych wartości d}}
+	\begin{equation*}
+	\begin{array}{|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{$Liczba$}&
+	\multicolumn{1}{c|}{$Liczba cykli$}&
+	\multicolumn{1}{c|}{$Liczba cykli$}\\
+	\multicolumn{1}{|c|}{$wierzchołków$}&
+	\multicolumn{1}{c|}{$Hamiltona dla $ d=0.2}&
+	\multicolumn{1}{c|}{$Hamiltona dla $ d=0.6}\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+
+\end{spacing}
+	\newpage
+	\tableofcontents
+\end{document}
+
+
