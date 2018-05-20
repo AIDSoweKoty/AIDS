@@ -1,3 +1,1 @@
-﻿  graf.cpp
-c:\users\piotr\documents\github\aids\algorytmy z powracaniem\solution1\project1\graf.cpp(12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  Project1.vcxproj -> C:\Users\Piotr\Documents\GitHub\AIDS\Algorytmy z powracaniem\Solution1\x64\Debug\Project1.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Platforms\x64\PlatformToolsets\v141\Toolset.targets(36,5): error MSB8036: Nie znaleziono zestawu Windows SDK w wersji 8.1. Zainstaluj wymaganą wersję zestawu Windows SDK lub zmień wersję zestawu SDK na stronach właściwości projektu albo klikając prawym przyciskiem myszy rozwiązanie i wybierając pozycję „Wskaż ponownie rozwiązanie”.

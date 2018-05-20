@@ -93,6 +93,8 @@ void graf::wylosujgrafEulera(float d) {
 };
 
 graf::graf(int r) {
+	this->licznik = new int;
+	this->licznik = 1000000;
 	this->czyZna = 0;
 	pom = new int[r];
 	this->r = r;
@@ -152,8 +154,9 @@ void graf::pisz() {
 	}
 	return;
 }
-void graf::cyklHamiltona(int a) {
-
+void graf::cyklHamiltona(int a, int licznik) {
+	if (this->licznik < 0)
+		return;
 	if (this->pom[this->r - 2] != -1) {
 
 		pom[this->r - 1] = a;
@@ -197,6 +200,9 @@ void graf::cyklHamiltona(int a) {
 				for (int j = 0; j<this->r; j++) {
 					if (this->pom[j] == -1) {
 						this->pom[j] = a;
+						this->licznik--;
+						if (this->licznik < 0)
+							return;
 						this->cyklHamiltona(i);
 						this->pom[j] = -1;
 						break;
