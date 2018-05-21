@@ -121,11 +121,17 @@ int main() {
 		d02tE << i << " " << diff.count() << endl;
 		cout << i << " tE 0.2 done" << endl;
 
-		start = std::chrono::high_resolution_clock::now();
-		graf3.pojedynczyCyklHamiltona();
-		end = std::chrono::high_resolution_clock::now();
-		diff = end - start;
-		d02tH1 << i << " " << diff.count() << endl;
+		if (i < 30) {
+			start = std::chrono::high_resolution_clock::now();
+			graf3.pojedynczyCyklHamiltona();
+			end = std::chrono::high_resolution_clock::now();
+			diff = end - start;
+			d02tH1 << i << " " << diff.count() << endl;
+		}
+		else {
+			d02tH1 << i << " " << "0.000" << endl;
+		}
+
 		cout << i << " tH1 0.2 done" << endl;
 
 		d02tHa << i << " " << "-" << endl;
