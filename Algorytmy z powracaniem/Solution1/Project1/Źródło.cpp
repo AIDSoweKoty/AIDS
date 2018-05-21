@@ -27,6 +27,20 @@ int main() {
 		d06tE << i << " " << diff.count();
 		cout << i << " tE 0.6 done" << endl;
 
+		start = std::chrono::high_resolution_clock::now();
+		graf.pojedynczyCyklHamiltona();
+		end = std::chrono::high_resolution_clock::now();
+		diff = end - start;
+		d06tHa << i << " " << diff.count();
+		cout << i << " tH1 0.6 done" << endl;
+
+		start = std::chrono::high_resolution_clock::now();
+		graf.cyklHamiltona();
+		end = std::chrono::high_resolution_clock::now();
+		diff = end - start;
+		d06tHa << i << " " << diff.count();
+		cout << i << " tHA 0.6 done" << endl;
+
 
 
 		//graf.cyklHamiltona();
