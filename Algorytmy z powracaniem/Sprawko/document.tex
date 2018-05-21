@@ -51,7 +51,8 @@
 
 \section{Opis implementacji }
  
- Do implementacji algorytmów poszukujących cyklu Eulera $(E)$, pojedynczego cyklu Hamiltona $(H1)$ i wszystkich cykli Hamiltona użyliśmy języka C++. Do pomiarów czasu wykorzystaliśmy klasę $std :: chrono :: high\_resolution\_clock$ z biblioteki $chrono$. Do reprezentacji grafu zastosowaliśmy macierz sąsiedztwa, ze względu na {\Huge \textcolor{red}{TU MI SIE TŁUMACZ CZEMU MACIERZ SĄSIEDZTWA}}.  
+ Do implementacji algorytmów poszukujących cyklu Eulera $(E)$, pojedynczego cyklu Hamiltona $(H1)$ i wszystkich cykli Hamiltona użyliśmy języka C++. Do pomiarów czasu wykorzystaliśmy klasę $std :: chrono :: high\_resolution\_clock$ z biblioteki $chrono$. Do reprezentacji grafu zastosowaliśmy macierz sąsiedztwa, ze względu na
+ intuicyjne działanie oraz łatwość implementacj.
 
 \section{Czasy działania algorytmów}
 
@@ -419,9 +420,9 @@ coordinates {
 \end{figure}
 
 
-Metoda poszukiwania cyklu Eulera oparta jest na algorytmie DFS (przeszukiwanie w głąb), z tą różnicą że przegląda krawędzi zamiast wierzchołków. Do przedstawienia grafu użyto macierzy sąsiedztwa {\Huge \textcolor{red}{TU MI SIE TŁUMACZ CZEMU MACIERZ SĄSIEDZTWA I CZY REPREZENTACJA MA WPŁYW NA ZŁOŻONOŚĆ OBLICZONIOWĄ METODY}}.
+Metoda poszukiwania cyklu Eulera oparta jest na algorytmie DFS (przeszukiwanie w głąb), z tą różnicą że przegląda krawędzi zamiast wierzchołków. Do przedstawienia grafu użyto macierzy sąsiedztwa. Uznaliśmy, że sprawi ona nam najmniej problemów związanych z implementacją. Niestety, wybrana przez nas struktura nie jest najwydajniejsza do tego typu zadania, o wiele szybsza była by lista następników lub lista łuków. W konsekwencji czas działania algorytmów przeszukujących wzrasta.  
 
-{\Huge \textcolor{red}{TUTAJ POPROSZĘ OPIS DZIAŁANIA ALGORYTMU ZGODZNIE Z IMPLEMENTACJĄ (MOZESZ UDAWAĆ ŻE TAKA BYŁA IMPLEMENTAJA) PRZYPOMNĘ TYLKO ŻE CHODZI O POSZUKIWANIE CYKLU EULERA, A NIE JAKIEGOŚ LOSOWEGO JAK OSTATNIO}}
+Algorytm rozpoczyna działanie od sprawdzenia, czy wszystkie wierzchołki są parzystego stopnia, w wypadku gdy nie są, kończy swoje działanie i zwraca odpowiednią wartość (w tym wypadku -1). Na tym etapie nie jest sprawdzana spójność grafu, ten warunek jest uwzględniany podczas jego tworzenia. Jeżeli struktura przejdzie ten test, wybierany jest wierzchołek startowy (w tej implementacji wierzchołek o numerze 0). Jest on kładziony na stos. Następnie wybierany jest wierzchołek o jak najmniejszym numerze, do którego istnieje połączenie z obecnej lokalizacji, przechodzi do niego, dodaje go na stos i usuwa połączenie między nimi. Algorytm powtarza to tak długo, aż nie znajdzie się w wierzchołku, z którego nie ma wyjścia. W ten czas zaczyna zdejmować ze stosu, wykonuje tę czynność tak długo, aż nie wróci do wierzchołka, w którym istnieje niewykorzystane połączenie. Jeżeli je znajdzie schemat postępowania powtarza się. Algorytm kończy się, gdy nie zostanie już żadna krawędź. Kolejność zdejmowania ze stosu jest tu bardzo istotna, to właśnie ona tworzy cyklem Eulera.
 
 Warunek konieczny i dostateczny istnienia cyklu Eulera w grafie:
 \begin{spacing}{0.5}
