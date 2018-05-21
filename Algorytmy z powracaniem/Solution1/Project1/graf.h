@@ -72,6 +72,7 @@ public:
 	bool **w;
 	glowa hamilton;
 	int *pom;
+	int *licznik;
 
 	int iloscKrawedzi;
 	int *obwEul;
