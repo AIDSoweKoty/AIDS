@@ -7,7 +7,7 @@
 
 #define L 5
 #define P 14
-#define L2 20
+#define L2 15
 #define P2 100
 #define pap 5
 
@@ -121,22 +121,37 @@ int main() {
 		d02tE << i << " " << diff.count() << endl;
 		cout << i << " tE 0.2 done" << endl;
 
-		if (i < 30) {
+		if (i <= 25) {
+			start = std::chrono::high_resolution_clock::now();
+			graf3.cyklHamiltona();
+			end = std::chrono::high_resolution_clock::now();
+			diff = end - start;
+			d02tHa << i << " " << diff.count() << endl;
+			cout << i << " tHA 0.2 done" << endl;
+
+
 			start = std::chrono::high_resolution_clock::now();
 			graf3.pojedynczyCyklHamiltona();
 			end = std::chrono::high_resolution_clock::now();
 			diff = end - start;
 			d02tH1 << i << " " << diff.count() << endl;
+			cout << i << " tH1 0.2 done" << endl;
+
+			d02cH << i << " " << graf3.hamilton.ilosc << endl;
+			cout << i << " cH 0.2 done" << endl;
 		}
 		else {
 			d02tH1 << i << " " << "0.000" << endl;
+			cout << i << " tH1 0.2 done" << endl;
+
+			d02tHa << i << " " << "-" << endl;
+			cout << i << " tHA 0.2 done" << endl;
+
+			d02cH << i << " " << "-" << endl;
+			cout << i << " cH 0.2 done" << endl;
 		}
 
-		cout << i << " tH1 0.2 done" << endl;
 
-		d02tHa << i << " " << "-" << endl;
-		d02cH << i << " " << "-"<< endl;
-		cout << i << " cH 0.2 done" << endl;
 	}
 	d02tE.close();
 	d06tE.close();
