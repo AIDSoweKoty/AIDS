@@ -73,6 +73,7 @@ public:
 	glowa hamilton;
 	int *pom;
 	int *licznik;
+	bool *CzyBy³oPrzerwanie;
 
 	int iloscKrawedzi;
 	int *obwEul;

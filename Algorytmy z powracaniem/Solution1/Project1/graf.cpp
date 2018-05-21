@@ -93,8 +93,10 @@ void graf::wylosujgrafEulera(float d) {
 };
 
 graf::graf(int r) {
-	this->licznik = new int;
-	this->licznik = 1000000;
+	licznik = new int;
+	(*licznik) = 20000000;
+	CzyBy這Przerwanie = new bool;
+	(*CzyBy這Przerwanie) = false;
 	this->czyZna = 0;
 	pom = new int[r];
 	this->r = r;
@@ -154,20 +156,17 @@ void graf::pisz() {
 	}
 	return;
 }
-void graf::cyklHamiltona(int a, int licznik) {
-	if (this->licznik < 0)
+void graf::cyklHamiltona(int a) {
+	if (*licznik < 0) {
+		(*CzyBy這Przerwanie) = true;
 		return;
+	}
+		
 	if (this->pom[this->r - 2] != -1) {
 
 		pom[this->r - 1] = a;
 
 		if (this->w[pom[0]][pom[this->r - 1]]) {
-			/*
-			for(int i=0;i<this->r;i++){
-			cout<<this->pom[i];
-			}
-			cout<<endl;
-			*/
 			this->hamilton.dodajElement(this->pom);
 		}
 
@@ -200,9 +199,13 @@ void graf::cyklHamiltona(int a, int licznik) {
 				for (int j = 0; j<this->r; j++) {
 					if (this->pom[j] == -1) {
 						this->pom[j] = a;
-						this->licznik--;
-						if (this->licznik < 0)
+						(*licznik)--;
+						if(*licznik%10000000==0)
+							cout << *licznik << endl;
+						if ((*licznik) < 0){
+							(*CzyBy這Przerwanie) = true;
 							return;
+						}
 						this->cyklHamiltona(i);
 						this->pom[j] = -1;
 						break;
