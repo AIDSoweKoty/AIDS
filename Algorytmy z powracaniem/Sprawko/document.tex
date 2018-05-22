@@ -580,8 +580,11 @@ Wraz z zwiększaniem liczby wierzchołków rośnie czas działania algorytmu pos
 	\end{array}
 	\end{equation*}
 \end{spacing}
+Złożoność obliczeniowa obu algorytmów to O(n!n).
+Jednakże istnieje duża różnica pomiędzy szukaniem jednego i szukaniem wszystkich cykli w grafie. Ma ona bezpośrednie przełożenie na czas trwania programu. W drugim przypadku algorytm działa dłużej, ponieważ nie poprzestaje na tylko jednej odpowiedzi. W szczególnym przypadku czas trwania dla obu będzie taki sam, zdarza się to wtedy gdy w grafie nie ma cyklu. Czas trwania dla szukania pojedynczego cyklu uzależniony jest od danych wejściowych, natomiast dla wszystkich zawsze sprawdzane są wszystkie permutacje.
+Do przeprowadzenia eksperymentu wykorzystaliśmy reprezentacje grafu w postaci macierzy sąsiedztwa. Została ona użyta, ponieważ jest najbardziej intuicyjna i przejrzysta dla człowieka. Niestety miało to wpływ na czas trwania algorytmu. Jeżeli wykorzystalibyśmy listę łuków, program nie wykonywałby dodatkowych operacji, takich jak sprawdzanie, czy łuk istnieje.
 
-Do znajdowania cykli Hamiltona w grafie używa się algorytmu z powracaniem. Algorytm poszukuje cyklu generując wszystkie przypadki, w tym przypadku {\LARGE \colorbox{red}{napisz co on generuje bo ja już nie wiem}} i odrzuca te które nie spełniają kryteriów. Ta metoda jest używana nie tylko do poszukiwaniu cykli Hamiltona, ale może być stosowana do rozwiązywania wszystkich problemów NP-zupełnych.
+Do znajdowania cykli Hamiltona w grafie używa się algorytmu z powracaniem. Algorytm poszukuje cyklu generując wszystkie przypadki, w tym przypadku są to tablice jednowymiarowe, które zapisuje do osobnej struktury odrzucając te które nie spełniają kryteriów. Ta metoda jest używana nie tylko do poszukiwaniu cykli Hamiltona, ale może być stosowana do rozwiązywania wszystkich problemów NP-zupełnych.
 
 Zarówno liczba wierzchołków jak i krawędzi ma duży wpływ na działanie tej metody.
 Dla grafów o większej liczbie wierzchołków algorytm będzie musiał przeanalizować większą liczbę możliwych przypadków, co wydłuży jego czas działania, szczególnie przy wyszukiwaniu wszystkich cykli. W grafach gęstszych 
