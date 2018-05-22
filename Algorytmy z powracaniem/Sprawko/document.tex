@@ -87,24 +87,24 @@
 12&0.003&0.048&232.968\\
 13&0.003&0.009&1063.510\\
 14&0.005&0.015&5300.210\\
-15&0.005&0.010&-.000\\
-20&0.007&0.035&-.000\\
-25&0.010&11.446&-.000\\
-30&0.014&0.039&-.000\\
-35&0.019&0.061&-.000\\
-40&0.026&0.079&-.000\\
-45&0.032&0.101&-.000\\
-50&0.039&0.361&-.000\\
-55&0.046&0.131&-.000\\
-60&0.055&8.360&-.000\\
-65&0.063&5.921&-.000\\
-70&0.073&0.480&-.000\\
-75&0.089&1.922&-.000\\
-80&0.096&0.939&-.000\\
-85&0.116&5.121&-.000\\
-90&0.120&0.731&-.000\\
-95&0.174&502.357&-.000\\
-100&0.148&0.795&-.000\\
+15&0.005&0.010&\multicolumn{1}{|c|}{przerwano}\\
+20&0.007&0.035&\multicolumn{1}{|c|}{przerwano}\\
+25&0.010&11.446&\multicolumn{1}{|c|}{przerwano}\\
+30&0.014&0.039&\multicolumn{1}{|c|}{przerwano}\\
+35&0.019&0.061&\multicolumn{1}{|c|}{przerwano}\\
+40&0.026&0.079&\multicolumn{1}{|c|}{przerwano}\\
+45&0.032&0.101&\multicolumn{1}{|c|}{przerwano}\\
+50&0.039&0.361&\multicolumn{1}{|c|}{przerwano}\\
+55&0.046&0.131&\multicolumn{1}{|c|}{przerwano}\\
+60&0.055&8.360&\multicolumn{1}{|c|}{przerwano}\\
+65&0.063&5.921&\multicolumn{1}{|c|}{przerwano}\\
+70&0.073&0.480&\multicolumn{1}{|c|}{przerwano}\\
+75&0.089&1.922&\multicolumn{1}{|c|}{przerwano}\\
+80&0.096&0.939&\multicolumn{1}{|c|}{przerwano}\\
+85&0.116&5.121&\multicolumn{1}{|c|}{przerwano}\\
+90&0.120&0.731&\multicolumn{1}{|c|}{przerwano}\\
+95&0.174&502.357&\multicolumn{1}{|c|}{przerwano}\\
+100&0.148&0.795&\multicolumn{1}{|c|}{przerwano}\\
 \hline
 	\end{array}
 	\end{equation*}
@@ -248,11 +248,13 @@ coordinates {
 	
 	Znajdowanie cyklu Eulera należy do klasy problemów łatwych (P), czyli takich dla których potrafimy znaleźć algorytm rozwiązujący ten problem w czasie wielomianowym. 
 	
-	Znajdowanie cyklu Hamiltona należy do problemów NP-zupełnych, które są podklasą problemów trudnych (NP), dla problemów które należą do klasy NP nie znamy rozwiązań działających w czasie wielomianowym lub mniejszym, czyli są to zadania o o złożoności co najmniej wykładniczej. Do problemów NP-zupełnych transformują się wielomianowo wszystkie problem z klasy NP. Rozwiązując problem NP-zupełny rozwiązujemy wszystkie problemy z tej podklasy, dlatego znajdując rozwiązanie jednego takiego problemu w czasie wielomianowym, znajdziemy rozwiązanie wielomianowe dla wszystkich problemów NP-zupełnych.
+	Złożoność obliczeniowa algorytmu znajdowania cyklu Eulera, przy zastosowaniu listy sąsiedztwa, wynosi $O(m)$, gdzie m - liczba krawędzi, ponieważ podczas przeszukiwania grafu trzeba przejść po wszystkich krawędziach, jest to złożoność wielomianowa.
 	
-	Złożoność obliczeniowa algorytmu znajdowania cyklu Eulera wynosi $O(m)$, gdzie m - liczba krawędzi, ponieważ podczas przeszukiwania grafu trzeba przejść po wszystkich krawędziach.
+	Znajdowanie cyklu Hamiltona należy do problemów NP-zupełnych, które są podklasą problemów trudnych (NP), dla problemów które należą do klasy NP i NP-zupełnych nie znamy rozwiązań działających w czasie wielomianowym lub mniejszym, czyli są to zadania o o złożoności co najmniej wykładniczej. Do problemów NP-zupełnych transformują się wielomianowo wszystkie problem z klasy NP. Rozwiązując problem NP-zupełny rozwiązujemy wszystkie problemy z tej podklasy, dlatego znajdując rozwiązanie jednego takiego problemu w czasie wielomianowym, znajdziemy rozwiązanie wielomianowe dla wszystkich problemów NP-zupełnych.
 	
-	Złożoność obliczeniowa algorytmu znajdowania pojedynczego cyklu Hamiltona wynosi $O(n!)$, gdzie n - liczba wierzchołków, ponieważ w najgorszym przypadku należy sprawdzić wszystkie możliwe permutacje, a dla wszystkich cykli $O(n \cdot n!)$ .
+
+	
+	Złożoność obliczeniowa algorytmu znajdowania pojedynczego i wszystkich cykli Hamiltona wynosi $O(n!)$, gdzie n - liczba wierzchołków, ponieważ w najgorszym przypadku należy sprawdzić wszystkie możliwe permutacje, jest to złożoność wykładnicza.
 	
 
 	
@@ -340,7 +342,8 @@ coordinates {
 	mark=diamond,
 	]
 	coordinates {
-(5,0.001706)(6,0.001137)(7,0.001706)(8,0.001707)(9,0.001706)(10,0.002845)(11,0.002844)(12,0.003982)(13,0.003982)(14,0.00512)(15,0.00512)(20,0.007396)(25,0.010809)(30,0.014222)(35,0.019342)(40,0.026169)(45,0.032995)(50,0.039822)(55,0.046648)(60,0.055751)(65,0.063715)(70,0.073387)(75,0.089315)(80,0.096142)(85,0.116053)(90,0.120604)(95,0.174079)(100,0.14848)
+(5,0.001138)(6,0.001137)(7,0.001138)(8,0.001138)(9,0.001707)(10,0.002276)(11,0.001707)(12,0.002276)(13,0.002275)(14,0.002844)(15,0.002844)(20,0.004551)(25,0.007395)(30,0.009671)(35,0.017066)(40,0.016498)(45,0.02048)(50,0.025031)(55,0.030151)(60,0.036409)(65,0.041529)(70,0.047786)(75,0.054613)(80,0.060871)(85,0.076231)(90,0.080213)(95,0.086471)(100,0.09671)
+
 
 	};
 	%%
@@ -350,6 +353,7 @@ coordinates {
 	]
 	coordinates {
 (5,0.001706)(6,0.001137)(7,0.001706)(8,0.001707)(9,0.001706)(10,0.002845)(11,0.002844)(12,0.003982)(13,0.003982)(14,0.00512)(15,0.00512)(20,0.007396)(25,0.010809)(30,0.014222)(35,0.019342)(40,0.026169)(45,0.032995)(50,0.039822)(55,0.046648)(60,0.055751)(65,0.063715)(70,0.073387)(75,0.089315)(80,0.096142)(85,0.116053)(90,0.120604)(95,0.174079)(100,0.14848)
+
 
 
 		
@@ -363,66 +367,11 @@ coordinates {
 	\end{tikzpicture}
 \end{figure}
 
-	%%WYKRES Tabela przedstawiająca $T_{E}$ dla różnych wartości $d$ logarytmiczna
-\begin{figure}[H]
-	\centering
-	\subsection*{Wykres przedstawiający $T_{E}$ dla różnych wartości $d$ skala logarytmiczna }
-	\begin{tikzpicture}
-	\begin{axis}[
-	width=0.9\textwidth,
-	height = 0.5\textwidth,
-	xlabel={Liczba wierzchołków},
-	ylabel={Czas działania w misekundach},
-	%
-	scaled x ticks = false,
-	xtick distance = 5,
-	x tick label style={/pgf/number format/fixed},
-	xticklabel style = {rotate= 90},
-	x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
-	%%
-	ymode = log,
-	ytick distance = 0.000000000000000000000000000001,
-	scaled y ticks = false,
-	y tick label style={/pgf/number format/fixed},
-	y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
-	%%
-	legend pos=north west,
-	ymajorgrids=true,
-	grid style=dashed,
-	]
-	%%
-	\addplot[
-	color=violet,
-	mark=diamond,
-	]
-	coordinates {
-(5,0.001706)(6,0.001137)(7,0.001706)(8,0.001707)(9,0.001706)(10,0.002845)(11,0.002844)(12,0.003982)(13,0.003982)(14,0.00512)(15,0.00512)(20,0.007396)(25,0.010809)(30,0.014222)(35,0.019342)(40,0.026169)(45,0.032995)(50,0.039822)(55,0.046648)(60,0.055751)(65,0.063715)(70,0.073387)(75,0.089315)(80,0.096142)(85,0.116053)(90,0.120604)(95,0.174079)(100,0.14848)
+Metoda poszukiwania cyklu Eulera oparta jest na algorytmie DFS (przeszukiwanie w głąb), z tą różnicą że przegląda krawędzie zamiast wierzchołków. Do przedstawienia grafu użyto macierzy sąsiedztwa. Uznaliśmy, że sprawi ona nam najmniej problemów związanych z implementacją. Niestety, wybrana przez nas struktura nie jest najwydajniejsza do tego typu zadania, szybsza byłaby lista następników. Macierz sąsiedztwa posiada jednak przewagę w  krótkim czasie i łatwości usuwania krawędzi.  
 
-	};
-	%%
-	\addplot[
-	color=black,
-	mark=*,
-	]
-	coordinates {
-(5,0.001706)(6,0.001137)(7,0.001706)(8,0.001707)(9,0.001706)(10,0.002845)(11,0.002844)(12,0.003982)(13,0.003982)(14,0.00512)(15,0.00512)(20,0.007396)(25,0.010809)(30,0.014222)(35,0.019342)(40,0.026169)(45,0.032995)(50,0.039822)(55,0.046648)(60,0.055751)(65,0.063715)(70,0.073387)(75,0.089315)(80,0.096142)(85,0.116053)(90,0.120604)(95,0.174079)(100,0.14848)
+Metoda poszukująca cyklu Eulera przechodzi przez każdą krawędź co najmniej raz. Dlatego dla listy następników złożoność wynosi $ O(m) $. Do implementacji z macierzą sąsiedztwa trzeba dodać czas wyszukiwania następnika dla wszystkich wierzchołków, stąd złożoność obliczeniowa dla tej implementacji wynosi $ O(n^{2} + m) $.
 
-		
-		
-	};
-	\legend{
-		$d =0.2$,
-		$d= 0.6$,
-	}
-	%%
-	\end{axis}
-	\end{tikzpicture}
-\end{figure}
-
-
-Metoda poszukiwania cyklu Eulera oparta jest na algorytmie DFS (przeszukiwanie w głąb), z tą różnicą że przegląda krawędzi zamiast wierzchołków. Do przedstawienia grafu użyto macierzy sąsiedztwa. Uznaliśmy, że sprawi ona nam najmniej problemów związanych z implementacją. Niestety, wybrana przez nas struktura nie jest najwydajniejsza do tego typu zadania, o wiele szybsza była by lista następników lub lista łuków. W konsekwencji czas działania algorytmów przeszukujących wzrasta.  
-
-Algorytm rozpoczyna działanie od sprawdzenia, czy wszystkie wierzchołki są parzystego stopnia, w wypadku gdy nie są, kończy swoje działanie i zwraca odpowiednią wartość (w tym wypadku -1). Na tym etapie nie jest sprawdzana spójność grafu, ten warunek jest uwzględniany podczas jego tworzenia. Jeżeli struktura przejdzie ten test, wybierany jest wierzchołek startowy (w tej implementacji wierzchołek o numerze 0). Jest on kładziony na stos. Następnie wybierany jest wierzchołek o jak najmniejszym numerze, do którego istnieje połączenie z obecnej lokalizacji, przechodzi do niego, dodaje go na stos i usuwa połączenie między nimi. Algorytm powtarza to tak długo, aż nie znajdzie się w wierzchołku, z którego nie ma wyjścia. W ten czas zaczyna zdejmować ze stosu, wykonuje tę czynność tak długo, aż nie wróci do wierzchołka, w którym istnieje niewykorzystane połączenie. Jeżeli je znajdzie schemat postępowania powtarza się. Algorytm kończy się, gdy nie zostanie już żadna krawędź. Kolejność zdejmowania ze stosu jest tu bardzo istotna, to właśnie ona tworzy cyklem Eulera.
+Algorytm rozpoczyna działanie od sprawdzenia, czy wszystkie wierzchołki są parzystego stopnia, w wypadku gdy nie są, kończy swoje działanie i zwraca odpowiednią wartość (w tym wypadku -1). Na tym etapie nie jest sprawdzana spójność grafu, ten warunek jest uwzględniany podczas jego tworzenia. Jeżeli struktura przejdzie ten test, wybierany jest wierzchołek startowy (w tej implementacji wierzchołek o najniższym możliwym indeksie). Jest on kładziony na stos. Następnie wybierany jest wierzchołek o jak najmniejszym numerze, do którego istnieje połączenie z obecnej lokalizacji, przechodzi do niego, dodaje go na stos i usuwa połączenie między nimi. Algorytm powtarza to tak długo, aż nie znajdzie się w wierzchołku, z którego nie ma wyjścia. W ten czas zaczyna zdejmować ze stosu, wykonuje tę czynność tak długo, aż nie wróci do wierzchołka, w którym istnieje niewykorzystane połączenie. Jeżeli je znajdzie schemat postępowania powtarza się. Algorytm kończy się, gdy nie zostanie już żadna krawędź. Kolejność zdejmowania ze stosu jest tu bardzo istotna, to właśnie ona tworzy cykl Eulera.
 
 Warunek konieczny i dostateczny istnienia cyklu Eulera w grafie:
 \begin{spacing}{0.5}
@@ -434,9 +383,9 @@ Warunek konieczny i dostateczny istnienia cyklu Eulera w grafie:
 \end{spacing}
 
 W testowanych grafach istniał cykl Eulera ponieważ zostały one wygenerowane odpowiednią metodą.
-Opierała się ona na tworzeniu klik o rozmiarze 3, po stworzeniu pierwszej wybierany był losowy należący do grafu wierzchołek, oraz losowano dwa nie należące do grafu wierzchołki, z tych trzech wierzchołków do grafu dołączana była nowa klika. Dołączanie nowych klik trwało aż do osiągnięcia pożądanej gęstości.
+Opierała się ona na tworzeniu klik o rozmiarze 3, po stworzeniu pierwszej wybierany był losowy należący do grafu wierzchołek, oraz losowano dwa nienależące do grafu, z tych trzech wierzchołków do grafu dołączana była nowa klika. Dołączanie nowych klik trwało aż do osiągnięcia pożądanej gęstości.
 
-{\huge zachowanie}
+Wraz z zwiększaniem liczby wierzchołków rośnie czas działania algorytmu poszukującego cyklu Eulera, tak samo dla grafów o tych samych rozmiarach ale o większej gęstości czas jest dłuższy, co oznacza że algorytm zachowuje się naturalnie.
 
 
 
@@ -469,24 +418,24 @@ Opierała się ona na tworzeniu klik o rozmiarze 3, po stworzeniu pierwszej wybi
 12&0.009&0.010&0.048&232.968\\
 13&0.012&0.013&0.009&1063.510\\
 14&0.039&0.043&0.015&5300.210\\
-15&0.062&0.069&0.010&-.000\\
-20&18.071&19.434&0.035&-.000\\
-25&1.196&12220.800&11.446&-.000\\
-30&0.000&-.000&0.039&-.000\\
-35&0.000&-.000&0.061&-.000\\
-40&0.000&-.000&0.079&-.000\\
-45&0.000&-.000&0.101&-.000\\
-50&0.000&-.000&0.361&-.000\\
-55&0.000&-.000&0.131&-.000\\
-60&0.000&-.000&8.360&-.000\\
-65&0.000&-.000&5.921&-.000\\
-70&0.000&-.000&0.480&-.000\\
-75&0.000&-.000&1.922&-.000\\
-80&0.000&-.000&0.939&-.000\\
-85&0.000&-.000&5.121&-.000\\
-90&0.000&-.000&0.731&-.000\\
-95&0.000&-.000&502.357&-.000\\
-100&0.000&-.000&0.795&-.000\\
+15&0.062&0.069&0.010&\multicolumn{1}{|c|}{przerwano}\\
+20&18.071&19.434&0.035&\multicolumn{1}{|c|}{przerwano}\\
+25&1.196&12220.800&11.446&\multicolumn{1}{|c|}{przerwano}\\
+%30&0.000&\multicolumn{1}{|c|}{przerwano}&0.039&\multicolumn{1}{|c|}{przerwano}\\
+%35&0.000&\multicolumn{1}{|c|}{przerwano}&0.061&\multicolumn{1}{|c|}{przerwano}\\
+%40&0.000&\multicolumn{1}{|c|}{przerwano}&0.079&\multicolumn{1}{|c|}{przerwano}\\
+%45&0.000&\multicolumn{1}{|c|}{przerwano}&0.101&\multicolumn{1}{|c|}{przerwano}\\
+%50&0.000&\multicolumn{1}{|c|}{przerwano}&0.361&\multicolumn{1}{|c|}{przerwano}\\
+%55&0.000&\multicolumn{1}{|c|}{przerwano}&0.131&\multicolumn{1}{|c|}{przerwano}\\
+%60&0.000&\multicolumn{1}{|c|}{przerwano}&8.360&\multicolumn{1}{|c|}{przerwano}\\
+%65&0.000&\multicolumn{1}{|c|}{przerwano}&5.921&\multicolumn{1}{|c|}{przerwano}\\
+%70&0.000&\multicolumn{1}{|c|}{przerwano}&0.480&\multicolumn{1}{|c|}{przerwano}\\
+%75&0.000&\multicolumn{1}{|c|}{przerwano}&1.922&\multicolumn{1}{|c|}{przerwano}\\
+%80&0.000&\multicolumn{1}{|c|}{przerwano}&0.939&\multicolumn{1}{|c|}{przerwano}\\
+%85&0.000&\multicolumn{1}{|c|}{przerwano}&5.121&\multicolumn{1}{|c|}{przerwano}\\
+%90&0.000&\multicolumn{1}{|c|}{przerwano}&0.731&\multicolumn{1}{|c|}{przerwano}\\
+%95&0.000&\multicolumn{1}{|c|}{przerwano}&502.357&\multicolumn{1}{|c|}{przerwano}\\
+%100&0.000&\multicolumn{1}{|c|}{przerwano}&0.795&\multicolumn{1}{|c|}{przerwano}\\
 \hline
 	\end{array}
 	\end{equation*}
@@ -525,7 +474,7 @@ Opierała się ona na tworzeniu klik o rozmiarze 3, po stworzeniu pierwszej wybi
 	mark=*,
 	]
 	coordinates {
-(5,0.001707)(6,0.002275)(7,0.001138)(8,0.002276)(9,0.001138)(10,0.008533)(11,0.000569)(12,0.009102)(13,0.012515)(14,0.039254)(15,0.062577)(20,18.0713)(25,1.19694)(30,0.000)(35,0.000)(40,0.000)(45,0.000)(50,0.000)(55,0.000)(60,0.000)(65,0.000)(70,0.000)(75,0.000)(80,0.000)(85,0.000)(90,0.000)(95,0.000)(100,0.000)
+(5,0.001707)(6,0.002275)(7,0.001138)(8,0.002276)(9,0.001138)(10,0.008533)(11,0.000569)(12,0.009102)(13,0.012515)(14,0.039254)(15,0.062577)(20,18.0713)(25,1.19694)%(30,0.000)(35,0.000)(40,0.000)(45,0.000)(50,0.000)(55,0.000)(60,0.000)(65,0.000)(70,0.000)(75,0.000)(80,0.000)(85,0.000)(90,0.000)(95,0.000)(100,0.000)
 	};
 	%%
 	\addplot[
@@ -533,7 +482,7 @@ Opierała się ona na tworzeniu klik o rozmiarze 3, po stworzeniu pierwszej wybi
 	mark=triangle,
 	]
 	coordinates {
-(5,0.003982)(6,0.00512)(7,0.031289)(8,0.033564)(9,0.006258)(10,0.130844)(11,0.00512)(12,0.048355)(13,0.009671)(14,0.01536)(15,0.01024)(20,0.035271)(25,11.446)(30,0.039822)(35,0.06144)(40,0.079644)(45,0.101831)(50,0.361813)(55,0.131413)(60,8.36038)(65,5.92156)(70,0.480142)(75,1.92284)(80,0.939803)(85,5.12113)(90,0.73159)(95,502.357)(100,0.795874)
+(5,0.003982)(6,0.00512)(7,0.031289)(8,0.033564)(9,0.006258)(10,0.130844)(11,0.00512)(12,0.048355)(13,0.009671)(14,0.01536)(15,0.01024)(20,0.035271)(25,11.446)%(30,0.039822)(35,0.06144)(40,0.079644)(45,0.101831)(50,0.361813)(55,0.131413)(60,8.36038)(65,5.92156)(70,0.480142)(75,1.92284)(80,0.939803)(85,5.12113)(90,0.73159)(95,502.357)(100,0.795874)
 
 		
 	};
@@ -623,29 +572,19 @@ Opierała się ona na tworzeniu klik o rozmiarze 3, po stworzeniu pierwszej wybi
 	12&0&11964\\
 	13&0&66680\\
 	14&0&346018\\
-	15&0&-\\
-	20&0&-\\
-	25&0&-\\
-	30&-&-\\
-	35&-&-\\
-	40&-&-\\
-	45&-&-\\
-	50&-&-\\
-	55&-&-\\
-	60&-&-\\
-	65&-&-\\
-	70&-&-\\
-	75&-&-\\
-	80&-&-\\
-	85&-&-\\
-	90&-&-\\
-	95&-&-\\
-	100&-&-\\
+	15&0&\multicolumn{1}{|c|}{przerwano}\\
+	20&0&\multicolumn{1}{|c|}{przerwano}\\
+	25&0&\multicolumn{1}{|c|}{przerwano}\\
+	
 	\hline
 	\end{array}
 	\end{equation*}
 \end{spacing}
 
+Do znajdowania cykli Hamiltona w grafie używa się algorytmu z powracaniem. Algorytm poszukuje cyklu generując wszystkie przypadki, w tym przypadku {\LARGE \colorbox{red}{napisz co on generuje bo ja już nie wiem}} i odrzuca te które nie spełniają kryteriów. Ta metoda jest używana nie tylko do poszukiwaniu cykli Hamiltona, ale może być stosowana do rozwiązywania wszystkich problemów NP-zupełnych.
+
+Zarówno liczba wierzchołków jak i krawędzi ma duży wpływ na działanie tej metody.
+Dla grafów o większej liczbie wierzchołków algorytm będzie musiał przeanalizować większą liczbę możliwych przypadków, co wydłuży jego czas działania, szczególnie przy wyszukiwaniu wszystkich cykli. W grafach gęstszych 
 \end{spacing}
 	\newpage
 	\tableofcontents
