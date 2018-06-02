@@ -29,6 +29,14 @@ plecak::plecak(int s, float b) {
         tmp += tab[j][0];
     }
     ladownosc = (int)(b * tmp);
+    //pomocnicze do rekursjid
+    this->tmp=new bool[s];
+    this->tmp2=new bool[s];
+    for(int i=0;i<s;i++){
+        this->tmp[i]=0;
+        this->tmp2[i]=0;
+    }
+    m=0;
 };
 
 void plecak::wypisz_plecak(){
@@ -221,4 +229,60 @@ int plecak::GH4() {
     std::cout<<"waga: "<<waga<<std::endl;
     return score;
 
+};
+
+void plecak::bruteForce(int waga,int wartosc,int bit){
+  if(bit==size){
+      if(waga<=ladownosc&&wartosc>m){
+          for(int i=0;i<size;i++){
+              tmp2[i]=tmp[i];
+          }
+          m=wartosc;
+      }
+
+      return;
+  }
+  bruteForce(waga,wartosc,bit+1);
+  tmp[bit]=1;
+  waga+=tab[bit][0];
+  wartosc+=tab[bit][1];
+  bruteForce(waga,wartosc,bit+1);
+  if(bit==0){
+      std::cout<<m<<" najlepsze brute force"<<std::endl;
+      for(int i=0;i<size;i++){
+          tmp[i]=0;
+          tmp2[i]=0;
+      }
+      m=0;
+  }
+  return;
+};
+
+void plecak::bruteForceMadry(int waga,int wartosc,int bit){
+    if(bit==size){
+        if(waga<=ladownosc&&wartosc>m){
+            for(int i=0;i<size;i++){
+                tmp2[i]=tmp[i];
+            }
+            m=wartosc;
+        }
+
+        return;
+    }
+    bruteForceMadry(waga,wartosc,bit+1);
+    tmp[bit]=1;
+    waga+=tab[bit][0];
+    wartosc+=tab[bit][1];
+    if(waga<=ladownosc){
+        bruteForceMadry(waga,wartosc,bit+1);
+    }
+    if(bit==0){
+        std::cout<<m<<" najlepsze brute force Madry"<<std::endl;
+        for(int i=0;i<size;i++){
+            tmp[i]=0;
+            tmp2[i]=0;
+        }
+        m=0;
+    }
+    return;
 };

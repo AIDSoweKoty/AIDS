@@ -23,4 +23,8 @@ iostream
 -
 cmake-build-debug/plecak.h
 C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.h
+fstream
+-
+chrono
+-
 
