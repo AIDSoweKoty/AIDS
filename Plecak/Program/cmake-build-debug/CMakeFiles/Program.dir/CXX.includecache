@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.cpp
+random
+-
+time.h
+-
+iostream
+-
+plecak.h
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.h
+
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.h
+
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/main.cpp
+iostream
+-
+cmake-build-debug/plecak.h
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.h
+
