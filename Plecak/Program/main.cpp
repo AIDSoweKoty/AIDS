@@ -8,5 +8,6 @@ int main() {
     std::cout<<"GH2 "<<P.GH2()<<std::endl;
     std::cout<<"GH3 "<<P.GH3()<<std::endl;
     std::cout<<"GH4 "<<P.GH4()<<std::endl;
+    P.wypisz_plecak();
     return 0;
 }
