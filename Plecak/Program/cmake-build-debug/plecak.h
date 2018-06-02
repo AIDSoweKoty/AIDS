@@ -18,9 +18,17 @@ public:
     int GH2();
     int GH3();
     int GH4();
+    //zmienne które mają być by rekurencja nie zajmowała za dużo RAM-u
+    void bruteForce(int waga=0,int wartosc=0, int bit=0);
+    void bruteForceMadry(int waga=0,int wartosc=0, int bit=0);
+    bool *tmp;  //pomocnicza by każda rekurencja nie tworzyła swojej własnej tablicy o rozmiarze size
+    bool *tmp2; //pod koniec funkcji wynik jest tutaj, na sam koniec jest spowrotem wyzerowana
+    int m;      //najlepsza wartość jest tutaj przechowywana, na sam koniec jest spowrotem ustawiana na 0
+
 private: // to funkcje sortujące do heurystyk
     void sortuj_plecak(bool po_s , bool rosnaco );
     void sortuj_polecak_po_sredniej();
+
 };
 
 

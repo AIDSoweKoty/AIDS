@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.cpp
+E:/git/AIDS/Plecak/Program/cmake-build-debug/plecak.cpp
 random
 -
 time.h
@@ -14,13 +14,13 @@ time.h
 iostream
 -
 plecak.h
-C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.h
+E:/git/AIDS/Plecak/Program/cmake-build-debug/plecak.h
 
-C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.h
+E:/git/AIDS/Plecak/Program/cmake-build-debug/plecak.h
 
-C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/main.cpp
+E:/git/AIDS/Plecak/Program/main.cpp
 iostream
 -
 cmake-build-debug/plecak.h
-C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/plecak.h
+E:/git/AIDS/Plecak/Program/cmake-build-debug/plecak.h
 
