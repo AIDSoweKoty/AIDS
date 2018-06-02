@@ -1,0 +1,3 @@
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/CMakeFiles/Program.dir
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Piotr/Documents/GitHub/AIDS/Plecak/Program/cmake-build-debug/CMakeFiles/rebuild_cache.dir

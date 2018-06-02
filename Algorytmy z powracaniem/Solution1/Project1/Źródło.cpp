@@ -141,7 +141,7 @@ int main() {
 			cout << i << " cH 0.2 done" << endl;
 		}
 		else {
-			d02tH1 << i << " " << "0.000" << endl;
+				d02tH1 << i << " " << "0.000" << endl;
 			cout << i << " tH1 0.2 done" << endl;
 
 			d02tHa << i << " " << "-" << endl;
