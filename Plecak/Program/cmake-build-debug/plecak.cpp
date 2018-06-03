@@ -306,10 +306,13 @@ void plecak::bruteForceMadry(int waga,int wartosc,int bit){
 };
 
 void plecak::programowanieDynamiczne() {                                    //1-wartość 0-waga
+    /*
     int **prog  = new int *[ladownosc+1];
     for(int j=0;j<ladownosc+1;j++){
         prog[j]=new int[size+1];
-    }
+    }*/
+
+    int prog[1000][250];
 
     for(int i=0;i<size+1;i++)
         for (int j = 0; j < ladownosc + 1; j++)
@@ -350,13 +353,13 @@ void plecak::programowanieDynamiczne() {                                    //1-
             }
         }
     }
-
+    /*
     for(int i=0;i<size+1;i++) {
         for (int j = 0; j < ladownosc + 1; j++) {
             std::cout << prog[i][j] << "   ";
         }
         std::cout<<std::endl;
     }
-
+    */
 };
 
