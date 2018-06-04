@@ -37,6 +37,22 @@ plecak::plecak(int s, float b) {
         this->tmp2[i]=0;
     }
     m=0;
+    ////przyklad co na zajeciach
+    /*
+    ladownosc=10;
+    tab[0][1]=3;
+    tab[1][1]=4;
+    tab[2][1]=2;
+    tab[3][1]=6;
+    tab[4][1]=1;
+
+    tab[0][0]=5;
+    tab[1][0]=3;
+    tab[2][0]=2;
+    tab[3][0]=4;
+    tab[4][0]=3;
+     */
+    /////
 };
 
 void plecak::wypisz_plecak(){
@@ -247,6 +263,7 @@ void plecak::bruteForce(int waga,int wartosc,int bit){
   waga+=tab[bit][0];
   wartosc+=tab[bit][1];
   bruteForce(waga,wartosc,bit+1);
+  tmp[bit]=0;
   if(bit==0){
       std::cout<<m<<" najlepsze brute force"<<std::endl;
       for(int i=0;i<size;i++){
@@ -266,7 +283,6 @@ void plecak::bruteForceMadry(int waga,int wartosc,int bit){
             }
             m=wartosc;
         }
-
         return;
     }
     bruteForceMadry(waga,wartosc,bit+1);
@@ -276,13 +292,75 @@ void plecak::bruteForceMadry(int waga,int wartosc,int bit){
     if(waga<=ladownosc){
         bruteForceMadry(waga,wartosc,bit+1);
     }
+    tmp[bit]=0;
     if(bit==0){
         std::cout<<m<<" najlepsze brute force Madry"<<std::endl;
         for(int i=0;i<size;i++){
+            std::cout<<tmp2[i];
             tmp[i]=0;
             tmp2[i]=0;
         }
         m=0;
+        std::cout<<std::endl;
     }
-    return;
 };
+
+int plecak::programowanieDynamiczne() {                                    //1-wartość 0-waga
+    
+//   auto **prog  = new int *[ladownosc+1];
+//    for(int j=0;j<ladownosc+1;j++)
+//        prog[j]=new int[size+1];
+    
+
+    int prog[100001][1001];
+
+    for(int i=0;i<size+1;i++)
+        for (int j = 0; j < ladownosc + 1; j++)
+            prog[i][j] = 0;
+
+    //return;       //jeżeli odkomentujesz return to wywali błąd ten sam problem jest przy deklaracji pamięci nie wiem jaki
+    int nowaWartosc=0;
+    for(int i=0;i<size+1;i++){
+        for(int j=0;j<ladownosc+1;j++){
+            //std::cout<<i<<" "<<j<<std::endl;
+            if(i==0||j==0){
+                continue;
+            }
+            /*
+            std::cout<<"************"<<std::endl;
+            for(int i1=0;i1<size+1;i1++) {
+                for (int j1 = 0; j1 < ladownosc + 1; j1++)
+                    std::cout << prog[i1][j1] << "   ";
+                std::cout << std::endl;
+            }
+            std::cout<<"************"<<std::endl;
+            */
+            if(tab[i-1][0]<=j){
+                if(j-tab[i-1][0]>0){
+                    nowaWartosc=prog[i-1][j-tab[i-1][0]]+tab[i-1][1];
+                }
+                else{
+                    nowaWartosc=tab[i-1][1];
+                }
+                //std::cout<<nowaWartosc<<" "<<tab[i-1][1]<<" "<<i<<std::endl;
+                if(nowaWartosc>prog[i-1][j])
+                    prog[i][j]=nowaWartosc;
+                else
+                    prog[i][j]=prog[i-1][j];
+            }
+            else{
+               prog[i][j]=prog[i-1][j];
+            }
+        }
+    }
+    /*
+    for(int i=0;i<size+1;i++) {
+        for (int j = 0; j < ladownosc + 1; j++) {
+            std::cout << prog[i][j] << "   ";
+        }
+        std::cout<<std::endl;
+    }
+    */
+    return prog[size][ladownosc];
+};
+
