@@ -305,18 +305,18 @@ void plecak::bruteForceMadry(int waga,int wartosc,int bit){
     }
 };
 
-void plecak::programowanieDynamiczne() {                                    //1-wartość 0-waga
-    /*
-    int **prog  = new int *[ladownosc+1];
-    for(int j=0;j<ladownosc+1;j++){
-        prog[j]=new int[size+1];
-    }*/
+int plecak::programowanieDynamiczne() {                                    //1-wartość 0-waga
+    
+//   auto **prog  = new int *[ladownosc+1];
+//    for(int j=0;j<ladownosc+1;j++)
+//        prog[j]=new int[size+1];
+    
 
-    int prog[1000][250];
+    int prog[100001][1001];
 
     for(int i=0;i<size+1;i++)
         for (int j = 0; j < ladownosc + 1; j++)
-            prog[i][j]=0;
+            prog[i][j] = 0;
 
     //return;       //jeżeli odkomentujesz return to wywali błąd ten sam problem jest przy deklaracji pamięci nie wiem jaki
     int nowaWartosc=0;
@@ -361,5 +361,6 @@ void plecak::programowanieDynamiczne() {                                    //1-
         std::cout<<std::endl;
     }
     */
+    return prog[size][ladownosc];
 };
 
