@@ -1,0 +1,791 @@
+\documentclass[polish,polish,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{pslatex}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{anysize}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{color}
+\usepackage{subcaption}
+\usepackage[polish]{babel}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=blue,
+}
+
+\marginsize{2.5cm}{2.5cm}{2cm}{2cm}
+
+
+\begin{document}
+	
+		\begin{titlepage}
+			\begin{flushright}
+				{ Wtorki 16:50\\
+					Grupa I3\\
+					Kierunek Informatyka\\
+					Wydział Informatyki\\
+					Politechnika Poznańska}
+			\end{flushright}
+		\vspace*{\fill}
+		\begin{center}
+			{\Large Algorytmy i struktury danych \\[0.1cm]
+				Sprawozdanie z zadania w zespołach nr. 4\\[0.1cm]
+				prowadząca: dr hab. inż. Małgorzata Sterna, prof PP}\\
+			{\Huge Programowanie dynamiczne\\ [0.4cm]}
+			{\large autorzy:\\[0.1cm]}
+			{\large Piotr Więtczak nr indeksu 132339\\[0.1cm] Tomasz Chudziak nr indeksu 136691}\\[0.5cm]
+			\today
+		\end{center}
+		\vspace*{\fill}
+	\end{titlepage}
+
+\begin{spacing}{1.35}
+	
+	\section{Implementacja}
+	
+	Do implementacji algorytmów wspomagających wybór paczek użyliśmy języka C++, a do pomiarów czasu klasy $std::chrono::hight_resolution_clock$, z biblioteki $chrono$. W implementacji zastosowano algorytmy korzystające z  siedmiu różnych strategii wyboru paczek:
+	\begin{itemize}
+		\item $PD$ - programowania dynamicznego,
+		\item $BF_{1}$ - pełnego przeglądu,
+		\item $BF_{2}$ - pełnego przeglądu z eliminacją rozwiązań niedopuszczalnych,
+		\item $GH_{1}$ - heurystycznej z losowym wyborem paczek,
+		\item $GH_{2}$ - heurystycznej z wyborem paczek o minimalnym ciężarze,
+		\item $GH_{3}$ - heurystycznej z wyborem paczek o maksymalnej wartości,
+		\item $GH_{4}$ - heurystycznej z wyborem paczek o maksymalnej zależności wartość$/$ciężar.  
+	\end{itemize}
+	
+	
+	
+	\section{Zależność czasu obliczeń t od liczby paczek n dla $PD$, $BF_{1}$, $BF_{2}$, $GH_{4}$ dla $b = 50 \% \sum s (a_{i})$. }
+	
+	%%wykres linowy
+		\begin{figure}[H]
+		\centering
+		\subsection*{Wykres przedstawiający czasy działania algorytmów dla $b=0.50\%$, skala liniowa}
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=0.9\textwidth,
+		height = 0.5\textwidth,
+		xlabel={Liczba paczek},
+		ylabel={Czas działania w misekundach},
+		%
+		scaled x ticks = false,
+		xtick distance = 2,
+		x tick label style={/pgf/number format/fixed},
+		xticklabel style = {rotate= 90},
+		x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+		%%
+		ytick distance = 2500,
+		scaled y ticks = false,
+		y tick label style={/pgf/number format/fixed},
+		y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+		%%
+		legend pos=north west,
+		ymajorgrids=true,
+		grid style=dashed,
+		]
+		%%
+		\addplot[
+		color=black,
+		mark=*,
+		]
+		coordinates {
+						(10,1.56491 )
+			(12,1.7269 )
+			(14,1.80375 )
+			(16,2.21588 )
+			(18,3.15129 )
+			(20,2.72559 )
+			(22,3.1317 )
+			(24,3.7224 )
+			(26,3.90034 )
+			(28,4.62126 )
+			(30,5.54084 )
+		};
+		%%
+		\addplot[
+		color=blue,
+		mark=triangle,
+		]
+		coordinates {
+			(10,0.903381 )
+(12,0.899991 )
+(14,1.14335 )
+(16,2.43325 )
+(18,8.73093 )
+(20,28.9478 )
+(22,110.618 )
+(24,441.764 )
+(26,1757.5 )
+(28,6933.11 )
+(30,27831.4 )
+		};
+		%%
+		\addplot[
+		color=green,
+		mark=square,
+		]
+		coordinates {
+			(10,1.70618 )
+(12,1.33586 )
+(14,3.41386 )
+(16,2.816 )
+(18,5.96503 )
+(20,20.1306 )
+(22,66.8581 )
+(24,285.001 )
+(26,1081.15 )
+(28,4051.2 )
+(30,16303.1 )
+		};
+			%%
+	\addplot[
+	color=red,
+	mark=x,
+	]
+	coordinates {
+			(10,0.450937)
+(12,0.380867)
+(14,0.675087)
+(16,0.404977)
+(18,0.388401)
+(20,0.391415)
+(22,0.423813)
+(24,0.39895)
+(26,0.427204)
+(28,0.400457)
+(30,0.526658)
+	};
+		\legend{
+			$PD$,
+			$BF_{1}$,
+			$BF_{2}$,
+			$GH_{4}$,
+		}
+		%%
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+
+	%%wykres linowy
+\begin{figure}[H]
+	\centering
+	\subsection*{Wykres przedstawiający czasy działania algorytmów dla $b=0.50\%$, skala logarytmiczna}
+	\begin{tikzpicture}
+	\begin{axis}[
+	width=0.9\textwidth,
+	height = 0.5\textwidth,
+	xlabel={Liczba paczek},
+	ylabel={Czas działania w misekundach},
+	%
+	scaled x ticks = false,
+	xtick distance = 2,
+	x tick label style={/pgf/number format/fixed},
+	xticklabel style = {rotate= 90},
+	x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+	%%
+	ymode = log,
+	ytick distance = 10,
+	scaled y ticks = false,
+	y tick label style={/pgf/number format/fixed},
+	y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+	%%
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	%%
+	\addplot[
+	color=black,
+	mark=*,
+	]
+	coordinates {
+		(10,1.56491 )
+		(12,1.7269 )
+		(14,1.80375 )
+		(16,2.21588 )
+		(18,3.15129 )
+		(20,2.72559 )
+		(22,3.1317 )
+		(24,3.7224 )
+		(26,3.90034 )
+		(28,4.62126 )
+		(30,5.54084 )
+	};
+	%%
+	\addplot[
+	color=blue,
+	mark=triangle,
+	]
+	coordinates {
+		(10,0.903381 )
+		(12,0.899991 )
+		(14,1.14335 )
+		(16,2.43325 )
+		(18,8.73093 )
+		(20,28.9478 )
+		(22,110.618 )
+		(24,441.764 )
+		(26,1757.5 )
+		(28,6933.11 )
+		(30,27831.4 )
+	};
+	%%
+	\addplot[
+	color=green,
+	mark=square,
+	]
+	coordinates {
+		(10,1.70618 )
+		(12,1.33586 )
+		(14,3.41386 )
+		(16,2.816 )
+		(18,5.96503 )
+		(20,20.1306 )
+		(22,66.8581 )
+		(24,285.001 )
+		(26,1081.15 )
+		(28,4051.2 )
+		(30,16303.1 )
+	};
+	%%
+	\addplot[
+	color=red,
+	mark=x,
+	]
+	coordinates {
+		(10,0.450937)
+		(12,0.380867)
+		(14,0.675087)
+		(16,0.404977)
+		(18,0.388401)
+		(20,0.391415)
+		(22,0.423813)
+		(24,0.39895)
+		(26,0.427204)
+		(28,0.400457)
+		(30,0.526658)
+	};
+	\legend{
+		$PD$,
+		$BF_{1}$,
+		$BF_{2}$,
+		$GH_{4}$,
+	}
+	%%
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+%tabela
+
+	\begin{figure}[H]
+		{\centering
+		\subsection*{Tabela przedstawiająca czasy działania algorytmów dla $b=0.50\%$}}
+	\begin{spacing}{1.7}
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{Liczba}&\multicolumn{4}{c|}{$Czas trawania algorytmu $[ms]}\\\cline{2-5}
+	\multicolumn{1}{|c|}{paczek}&\multicolumn{1}{c|}{\quad \quad PD\quad \quad  }&\multicolumn{1}{c|}{ \quad \quad BF_{1}\quad \quad  }&\multicolumn{1}{c|}{ \quad \quad BF_{2}\quad \quad }&\multicolumn{1}{c|}{\quad \quad  GH_{4}\quad \quad  }\\
+	\hline
+	10&1.564&0.903&1.706&0.450\\
+	12&1.726&0.899&1.335&0.380\\
+	14&1.803&1.143&3.413&0.675\\
+	16&2.215&2.435&2.816&0.404\\
+	18&3.151&8.730&5.965&0.388\\
+	20&2.725&28.947&20.130&0.391\\
+	22&3.131&110.618&66.851&0.423\\
+	24&3.722&441.764&285.001&0.398\\
+	26&3.900&1757.558&1081.185&0.427\\
+	28&4.621&6933.151&4051.269&0.400\\
+	30&5.540&27831.445&16303.147&0.526\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+\end{figure}
+
+	Wersja decyzyjna problemu plecakowego należy do klasy problemów NP-zupełnych, oznacza to że optymalizacyjny problem plecakowy również będzie należał do NP-trudnych, czyli będzie co najmniej tak trudny jak jego wersja dyskretna. Pseudowielomianowy algorytm problemu plecakowego klasyfikujemy jako problem NP-zupełny, a problem nierozwiązywalny w czasie
+	pseudowielomianowym nazywamy silnie NP-zupełny, dlatego klasa problemów trudnych nie jest jednorodna.  Zastosowanie metody programowania dynamicznego jest możliwe dla problemów optymalizacyjnych, czyli takich których rozwiązanie polega na znalezieniu największej, albo najmniejszej wartość pewnego parametru problemu.
+	
+	Metody $BF_{1}$ i $BF_{2}$ zwracają optymalny wynik, jednak przez zastosowanie pełnego przeglądu złożoność metody $BF_{1}$ wynosi $O(2^{n})$, a metoda $BF_{2}$, eliminująca rozwiązania niedopuszczalne, działa nie wolniej od metody $BF_{1}$
+	
+	Złożoność obliczeniowa algorytmu wykorzystującego programowanie dynamiczne, wynosi $O(n \cdot) b$, gdzie $n$ - liczba dostępnych paczek, $b$ - maksymalna ładowność plecaka. Metoda ta, korzysta z możliwości podziału problemu na zależne od siebie pod problemy, oraz zwraca optymalny wynik, jednak działa szybciej od metod $BF$. Nie jest jednak zależna tylko od ilości paczek, ale również od pojemności plecaka.
+	
+	Strategie heurystyczne nie gwarantują otrzymania wyniku optymalnego, jednak działają znacznie szybciej od poprzednich metod, złożoność dla metody $GH_{1}$ wynosi $O(n)$, a dla pozostałych metod heurystycznych $O(2n)$, przez zastosowanie sortowania przez zliczanie.
+	
+	Wybór strategii rozwiązywania problemu zależy od tego czy chcemy poznać optymalny wynik, od wielkości plecaka, oraz od ilości dostępnego czasu.
+	Jeżeli nie zależy nam na dokładnym wyniku, tylko na krótkim czasie poszukiwania, na pewno warto wybrać strategię heurystyczną, szczególnie przy dużej ilości paczek.
+	Chcąc poznać optymalny wynik trzeba zdecydować między pełnym przeglądem, a programowaniem dynamicznym. Prz stosunkowo niskiej ilości paczek do rozmiaru plecaka metoda korzystająca z pełnego przeglądu może działać szybciej, w innych przypadkach poradzi sobie gorzej.
+	
+	
+	\section{Zależność czasu obliczeń t od liczby paczek n dla metody $PD$, $BF_{1}$, $BF_{2}$, $GH_{4}$ dla $b = 25 \% \sum s (a_{i})$ i $b = 75 \% \sum s (a_{i})$. }
+	
+		
+	
+	\begin{figure}[H]
+		{\centering
+			\subsection*{Tabela przedstawiający czasy działania algorytmów dla różnych $b$}}
+		\begin{spacing}{1.7}
+			\begin{equation*}
+			\begin{array}{|r|r|r|r|r|r|r|r|r|}
+			\hline
+			\multicolumn{1}{|c|}{$Liczba$}&\multicolumn{4}{c|}{$ Czas trwania algorytmów dla $b=25\%$ $[ms]$ $}&\multicolumn{4}{c|}{$ Czas trwania algorytmów dla $b=75\%$ $[ms]$ $}\\\cline{2-9}
+			\multicolumn{1}{|c|}{$paczek$}&
+			\multicolumn{1}{c|}{\quad PD \quad}&\multicolumn{1}{c|}{\quad BF_{1}\quad}&\multicolumn{1}{c|}{\quad BF_{2}\quad}&\multicolumn{1}{c|}{\quad GH_{4}\quad}&
+			\multicolumn{1}{c|}{\quad PD\quad}&\multicolumn{1}{c|}{\quad BF_{1}\quad}&\multicolumn{1}{c|}{\quad BF_{2}\quad}&\multicolumn{1}{c|}{\quad GH_{4}\quad}\\
+			\hline
+			10& 2.020& 0.814& 1.233& 0.349&2.018&0.714&1.857&0.430\\
+			12& 1.398& 0.921& 1.454& 0.429&2.425&0.832&1.604&0.407\\
+			14& 1.570& 1.380& 1.510& 0.433&2.547&1.153&2.252&0.478\\
+			16& 1.777& 2.799& 1.817& 0.485&3.141&2.400&3.321&0.434\\
+			18& 2.194& 9.581& 2.395& 0.556&4.152&8.192&9.354&0.480\\
+			20& 2.293& 35.322& 4.151 &0.528&4.343&29.341&30.594&0.460\\
+			22& 2.443 &118.491& 6.802 &0.489&4.942&113.809&120.644&0.481\\
+			24& 2.252& 540.134 &20.763 &0.497&5.714&434.529&468.442&0.467\\
+			26& 3.045& 2175.095 &71.987& 0.507&5.797&1905.247&1905.068&0.417\\
+			28& 3.456& 7193.456 &114.979 &0.435&5.937&7045.246&7187.442&0.479\\
+			30& 3.616& 27904.347 &318.769& 0.411&6.101&27492.279&28313.462&0.404\\
+			\hline
+			
+			\end{array}
+			\end{equation*}
+		\end{spacing}
+	\end{figure}
+	
+	
+	
+	%wykres PD
+		%%wykres
+	\begin{figure}[H]
+		\centering
+		\subsection*{Wykres przedstawiający czasy działania algorytmu $PD$ dla różnych $b$, skala liniowa }
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=0.9\textwidth,
+		height = 0.5\textwidth,
+		xlabel={Liczba paczek},
+		ylabel={Czas działania w misekundach},
+		%
+		scaled x ticks = false,
+		xtick distance = 2,
+		x tick label style={/pgf/number format/fixed},
+		xticklabel style = {rotate= 90},
+		x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+		%%
+		ytick distance = 1,
+		scaled y ticks = false,
+		y tick label style={/pgf/number format/fixed},
+		y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+		%%
+		legend pos=north west,
+		ymajorgrids=true,
+		grid style=dashed,
+		]
+		%%
+		\addplot[
+		color=black,
+		mark=*,
+		]
+		coordinates {
+			(10,2.02074 )
+(12,1.39877 )
+(14,1.57056 )
+(16,1.777 )
+(18,2.19479 )
+(20,2.29349 )
+(22,2.44305 )
+(24,2.25205 )
+(26,3.04505 )
+(28,3.45681 )
+(30,3.61663 )
+		};
+		%%
+		\addplot[
+		color = red,
+		mark=x,
+		]
+		coordinates {
+			(10,2.0181 )
+(12,2.42572 )
+(14,2.5474 )
+(16,3.14187 )
+(18,4.15246 )
+(20,4.34399 )
+(22,4.94298 )
+(24,5.71451 )
+(26,5.79798 )
+(28,5.9379 )
+(30,6.1014 )
+		};
+
+		\legend{
+			$b = 25\%$,
+			$b = 75\% $,
+		}
+		%%
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+	
+		%wykres bf1
+	%%wykres
+	\begin{figure}[H]
+		\centering
+		\subsection*{Wykres przedstawiający czasy działania algorytmu $BF_{1}$ dla różnych $b$, skala logarytmiczna. }
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=0.9\textwidth,
+		height = 0.5\textwidth,
+		xlabel={Liczba paczek},
+		ylabel={Czas działania w misekundach},
+		%
+		scaled x ticks = false,
+		xtick distance = 2,
+		x tick label style={/pgf/number format/fixed},
+		xticklabel style = {rotate= 90},
+		x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+		%%
+		ymode = log,
+		ytick distance = 10,
+		scaled y ticks = false,
+		y tick label style={/pgf/number format/fixed},
+		y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+		%%
+		legend pos=north west,
+		ymajorgrids=true,
+		grid style=dashed,
+		]
+		%%
+		\addplot[
+		color=black,
+		mark=*,
+		]
+		coordinates {
+			(10,0.814474 )
+(12,0.921087 )
+(14,1.38031 )
+(16,2.7998 )
+(18,9.5891 )
+(20,35.3227 )
+(22,118.491 )
+(24,540.134 )
+(26,2175.09 )
+(28,7193.46 )
+(30,27904.3 )
+		};
+		%%
+		\addplot[
+		color = red,
+		mark=x,
+		]
+		coordinates {
+			(10,0.714266 )
+(12,0.832934 )
+(14,1.1539 )
+(16,2.40048 )
+(18,8.19259 )
+(20,29.3411 )
+(22,113.809 )
+(24,434.529 )
+(26,1905.24 )
+(28,7045.24 )
+(30,27492.2 )
+		};
+		
+		\legend{
+			$b = 25\%$,
+			$b = 75\% $,
+		}
+		%%
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+
+	%wykres bf2
+%%wykres
+\begin{figure}[H]
+	\centering
+	\subsection*{Wykres przedstawiający czasy działania algorytmu $BF_{2}$ dla różnych $b$, skala logarytmiczna. }
+	\begin{tikzpicture}
+	\begin{axis}[
+	width=0.9\textwidth,
+	height = 0.5\textwidth,
+	xlabel={Liczba paczek},
+	ylabel={Czas działania w misekundach},
+	%
+	scaled x ticks = false,
+	xtick distance = 2,
+	x tick label style={/pgf/number format/fixed},
+	xticklabel style = {rotate= 90},
+	x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+	%%
+	ymode = log,
+	ytick distance = 10,
+	scaled y ticks = false,
+	y tick label style={/pgf/number format/fixed},
+	y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+	%%
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	%%
+	\addplot[
+	color=black,
+	mark=*,
+	]
+	coordinates {
+			(10,1.23603 )
+(12,1.4534 )
+(14,1.51066 )
+(16,1.81769 )
+(18,2.3952 )
+(20,4.15186 )
+(22,6.80211 )
+(24,20.7631 )
+(26,71.9876 )
+(28,114.97 )
+(30,318.769 )
+	};
+	%%
+	\addplot[
+	color = red,
+	mark=x,
+	]
+	coordinates {
+			(10,1.85724 )
+(12,1.60484 )
+(14,2.2528 )
+(16,3.32157 )
+(18,9.35064 )
+(20,30.5944 )
+(22,120.64 )
+(24,468.442 )
+(26,1905.06 )
+(28,7187.44 )
+(30,28313.4 )
+	};
+	
+	\legend{
+		$b = 25\%$,
+		$b = 75\% $,
+	}
+	%%
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+		%wykres PD
+	%%wykres
+	\begin{figure}[H]
+		\centering
+		\subsection*{Wykres przedstawiający czasy działania algorytmu $GH_{4}$ dla różnych $b$, skala liniowa. }
+		\begin{tikzpicture}
+		\begin{axis}[
+		width=0.9\textwidth,
+		height = 0.5\textwidth,
+		xlabel={Liczba paczek},
+		ylabel={Czas działania w misekundach},
+		%
+		scaled x ticks = false,
+		xtick distance = 2,
+		x tick label style={/pgf/number format/fixed},
+		xticklabel style = {rotate= 90},
+		x label style={at={(axis description cs:0.5,-0.15)},anchor=north},
+		%%
+		ytick distance = 0.05,
+		scaled y ticks = false,
+		y tick label style={/pgf/number format/fixed},
+		y label style={at={(axis description cs:-0.05,0.85)},anchor=east},
+		%%
+		legend pos=north east,
+		ymajorgrids=true,
+		grid style=dashed,
+		]
+		%%
+		\addplot[
+		color=black,
+		mark=*,
+		]
+		coordinates {
+			(10,0.349975)
+(12,0.42984)
+(14,0.433231)
+(16,0.485972)
+(18,0.55642)
+(20,0.528542)
+(22,0.489739)
+(24,0.497274)
+(26,0.507069)
+(28,0.435491)
+(30,0.411758)
+		};
+		%%
+		\addplot[
+		color = red,
+		mark=x,
+		]
+		coordinates {
+			(10,0.430594)
+(12,0.407237)
+(14,0.478061)
+(16,0.434738)
+(18,0.480321)
+(20,0.460355)
+(22,0.481075)
+(24,0.467889)
+(26,0.417785)
+(28,0.479568)
+(30,0.404224)
+		};
+		
+		\legend{
+			$b = 25\%$,
+			$b = 75\% $,
+		}
+		%%
+		\end{axis}
+		\end{tikzpicture}
+	\end{figure}
+	
+	Czas działania wszystkich algorytmów rośnie wraz z ilością paczek, jednak jest to najmniej widoczne w przypadku $GH_{4}$. 
+	Rozmiar plecaka nie ma wpływu na metody $BF_{1}$ i $GH_{4}$. Natomiast w algorytmie $BF_{2}$ mniejszy rozmiar plecaka pozwala na odrzucenie większej ilości rozwiązań niedopuszczalnych co skraca czas jego działania. Przy metodzie wykorzystującej programowanie dynamiczne widać że pojemność plecaka ma duży wpływ na czas działania, przy wzroście ładowności wzrasta długość czasu działania, co jest zgodne ze złożonością obliczeniową metody $O(n \cdot b)$, b - pojemność plecaka.
+	
+	\section{Obliczanie średniego błędu popełnionego przez poszczególne heurystyki.}
+	Algorytm heurystyczny jest to schemat postępowania, który nie gwarantuje odnalezienia najlepszego rozwiązania, lecz dopuszczalnie dobrego. Oznacza to, że krótszy czas poświęcony na uzyskanie go, pozwala zrekompensować korzyści płynące z najlepszego. Algorytm zachłanny charakteryzuje się tym, że w każdym kroku decyzje podejmuje zachłannie. Innymi słowy, stara się on podjąć jak najlepszą decyzję na daną chwilę, nie dokonując oceny czy będzie to korzystne w kolejnych krokach. Algorytmy listowe wpierw porządkują dane wg jakiegoś kryterium (priorytet, wartość). Później rozpatruje je wg ustalonej kolejności.
+
+W naszym badaniu testowaliśmy cztery heurystyki różniące się regułami wyboru paczek: losową ($GH_{1}$), min\{s($a_{i}$)\} ($GH_{2}$), max\{w($a_{i}$)\} ($GH_{3}$) i max\{w($a_{i}$)/s($a_{i}$)\} ($GH_{4}$). Sprawdzaliśmy błąd popełniany przez poszczególne heurystyki dla różnych ładowności pojazdu. 
+
+
+\begin{figure}[H]
+	{\centering
+\subsection*{Tabela prezentująca błędy popełniane przez poszczególne heurystyki, dla $b = 25 \%$ $ [\%] $
+	}}
+\begin{spacing}{1.7}
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|r|}
+	\hline
+	\multicolumn{1}{|c|}{$Liczba paczek$}&\multicolumn{1}{c|}{GH_{1}}&\multicolumn{1}{c|}{GH_{2}}&\multicolumn{1}{c|}{GH_{3}}&\multicolumn{1}{c|}{GH_{4}}\\\hline
+	100&29.517&17.292&10.757&17.737\\
+	120&55.085&14.799&23.620&5.293\\
+	140&33.744&22.452&30.514&0.660\\
+	160&65.074&19.323&10.267&0.568\\
+	180&56.951&23.347&30.512&0.000\\
+	200&56.475&15.871&33.060&3.666\\
+	220&30.272&20.988&18.109&4.806\\
+	240&46.826&20.291&20.235&0.000\\
+	260&52.659&19.769&18.362&1.450\\
+	280&54.999&22.358&23.737&0.000\\
+	300&40.436&22.810&17.967&1.200\\
+	\hline
+	$ średnia $&52.204&21.930&23.717&3.538\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+\end{figure}
+
+
+\begin{figure}[H]
+			{\centering
+		\subsection*{Tabela prezentująca błędy popełniane przez poszczególne heurystyki, dla $b = 50 \%$ $ [\%] $
+	}}
+	\begin{spacing}{1.7}
+
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|r|}
+	\hline
+\multicolumn{1}{|c|}{$Liczba paczek$}&\multicolumn{1}{c|}{GH_{1}}&\multicolumn{1}{c|}{GH_{2}}&\multicolumn{1}{c|}{GH_{3}}&\multicolumn{1}{c|}{GH_{4}}\\\hline
+	100&67.716&16.479&17.978&0.000\\ 
+	120&42.943&24.659&16.232&0.928\\ 
+	140&18.229&18.180&12.734&0.279\\ 
+	160&53.454&20.226&10.377&9.068\\ 
+	180&51.352&13.265&5.277&4.216\\ 
+	200&41.081&13.335&5.313&0.865\\ 
+	220&36.206&14.890&3.998&3.678\\ 
+	240&29.008&15.524&6.085&5.808\\ 
+	260&49.571&12.330&7.905&1.467\\ 
+	280&24.484&13.115&2.275&0.000\\ 
+	300&41.770&17.116&11.775&2.809\\ 
+	\hline
+	$ średnia $&45.581&17.912&9.995&2.912\\ \hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+\end{figure}
+
+
+\begin{figure}[H]
+			{\centering
+		\subsection*{Tabela prezentująca błędy popełniane przez poszczególne heurystyki, dla $b = 75 \%$ $ [\%] $
+	}}
+	\begin{spacing}{1.7}
+
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|r|}
+	\hline
+\multicolumn{1}{|c|}{$Liczba paczek$}&\multicolumn{1}{c|}{GH_{1}}&\multicolumn{1}{c|}{GH_{2}}&\multicolumn{1}{c|}{GH_{3}}&\multicolumn{1}{c|}{GH_{4}}\\\hline
+	100&47.273&0.828&1.407&2.236\\
+	120&55.092&0.637&1.081&1.719\\
+	140&16.002&0.583&2.465&3.048\\
+	160&22.028&10.494&0.000&0.000\\
+	180&9.766&6.336&1.827&2.259\\
+	200&16.053&7.627&0.925&1.291\\
+	220&28.255&6.443&0.519&0.563\\
+	240&12.068&8.440&2.403&3.051\\
+	260&17.421&18.183&7.957&0.440\\
+	280&16.721&5.510&0.137&0.937\\
+	300&26.328&10.172&1.116&0.433\\
+	\hline
+	$ średnia $&26.699&7.525&1.984&1.598\\\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+\end{figure}
+
+
+\begin{figure}[H]
+			{\centering
+		\subsection*{Tabela podsumowująca wyniki}}
+	\begin{spacing}{1.7}
+
+	\begin{equation*}
+	\begin{array}{|r|r|r|r|r|}
+
+	\hline
+\multicolumn{1}{|c|}{$śr. błąd$}&\multicolumn{1}{c|}{GH_{1}}&\multicolumn{1}{c|}{GH_{2}}&\multicolumn{1}{c|}{GH_{3}}&\multicolumn{1}{c|}{GH_{4}}\\\hline
+    b=25\%&52.204&21.931&23.717&3.538\\
+b=50\%&45.581&17.912&9.995&2.912\\
+	b=75\%&26.699&7.525&1.984&1.598\\
+	$ średnia $&46.802&15.789&11.899&2.703\\
+	\hline
+	\end{array}
+	\end{equation*}
+\end{spacing}
+\end{figure}
+
+Wraz ze wzrostem ładowności pojazdu algorytmy radzą sobie coraz lepiej. Jest to spowodowane tym, że mniejsza ilość paczek nie zostanie użyta. Dla heurystyk ich wydajność niewydane się być skorelowana z ilością paczek, z którą ma do czynienia.
+
+Jak widać w tabeli powyżej, jakość rozwiązanie zależy od użytej metody. Spośród badanych metod najmniej efektywna okazała się $GH_{1}$, następnie $GH_{2}$. Najlepiej wypadła $GH_{4}$ a po niej $GH_{3}$. Wydajność $GH_{1}$ zależy tylko i wyłącznie od przypadku. Skuteczność $GH_{2}$ i $GH_{3}$ jest zbliżona, pierwsza sortuje wg rozmiaru rosnąco, natomiast drugi wg rozmiaru malejąco. $GH_{2}$ będzie radził sobie gorzej dla dużej ilości małych paczek o niskiej wartości, a $GH_{3}$ dla stosunkowo dużej ilości dużych paczek o wysokiej wartości. $GH_{4}$ bierze pod uwagę stosunek wartości do rozmiaru paczki, co w konsekwencji daje  wynik najbardziej zbliżony do optymalnego. 
+
+Metody zachłanne można wykorzystywać nie tylko do rozwiązywania problemu plecakowego (np. algorytm Kruskala służący do wyznaczania minimalnego drzewa rozpinającego dla grafu nie skierowanego). 
+
+
+
+\end{spacing}
+	\newpage
+	\tableofcontents
+\end{document}
+
+

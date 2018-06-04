@@ -7,44 +7,24 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCCompiler.cmake.in"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCInformation.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCXXCompiler.cmake.in"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCXXInformation.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeCompilerIdDetection.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineCCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineCXXCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineCompileFeatures.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineCompilerABI.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineCompilerId.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineRCCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeDetermineSystem.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeFindBinUtils.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeFindCodeBlocks.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeGenericSystem.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake"
+<<<<<<< HEAD
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeMinGWFindMake.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeRCCompiler.cmake.in"
+=======
+>>>>>>> 0026
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeRCInformation.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeSystem.cmake.in"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeTestCCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeTestCXXCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeTestCompilerCommon.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/CMakeTestRCCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/ADSP-DetermineCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/ARMCC-DetermineCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/AppleClang-DetermineCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/Borland-DetermineCompiler.cmake"
-  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/Bruce-C-DetermineCompiler.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+<<<<<<< HEAD
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/Clang-DetermineCompiler.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/Clang-DetermineCompilerInternal.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake"
@@ -89,6 +69,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Internal/FeatureTesting.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Platform/Windows-Determine-CXX.cmake"
+=======
+  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/GNU-C.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/GNU-CXX.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Compiler/GNU.cmake"
+>>>>>>> 0026
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Platform/Windows-GNU-C-ABI.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Platform/Windows-GNU-C.cmake"
   "C:/Program Files/JetBrains/CLion 2018.1.3/bin/cmake/share/cmake-3.10/Modules/Platform/Windows-GNU-CXX-ABI.cmake"
@@ -103,8 +88,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.10.3/CMakeSystem.cmake"
+<<<<<<< HEAD
   "CMakeFiles/feature_tests.c"
   "CMakeFiles/feature_tests.cxx"
+=======
+>>>>>>> 0026
   )
 
 # The corresponding makefile is:
@@ -115,12 +103,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.10.3/CMakeSystem.cmake"
-  "CMakeFiles/3.10.3/CMakeCCompiler.cmake"
-  "CMakeFiles/3.10.3/CMakeCXXCompiler.cmake"
-  "CMakeFiles/3.10.3/CMakeRCCompiler.cmake"
-  "CMakeFiles/3.10.3/CMakeCCompiler.cmake"
-  "CMakeFiles/3.10.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

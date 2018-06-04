@@ -1,0 +1,5 @@
+\select@language {polish}
+\contentsline {section}{\numberline {1}Implementacja}{1}{section.1}
+\contentsline {section}{\numberline {2}Zale\IeC {\.z}no\IeC {\'s}\IeC {\'c} czasu oblicze\IeC {\'n} t od liczby paczek n dla $PD$, $BF_{1}$, $BF_{2}$, $GH_{4}$ dla $b = 50 \% \DOTSB \sum@ \slimits@ s (a_{i})$. }{1}{section.2}
+\contentsline {section}{\numberline {3}Zale\IeC {\.z}no\IeC {\'s}\IeC {\'c} czasu oblicze\IeC {\'n} t od liczby paczek n dla metody $PD$, $BF_{1}$, $BF_{2}$, $GH_{4}$ dla $b = 25 \% \DOTSB \sum@ \slimits@ s (a_{i})$ i $b = 75 \% \DOTSB \sum@ \slimits@ s (a_{i})$. }{4}{section.3}
+\contentsline {section}{\numberline {4}Obliczanie \IeC {\'s}redniego b\IeC {\l }\IeC {\k e}du pope\IeC {\l }nionego przez poszczeg\IeC {\'o}lne heurystyki.}{7}{section.4}
