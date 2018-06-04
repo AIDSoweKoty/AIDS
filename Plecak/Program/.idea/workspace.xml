@@ -29,7 +29,7 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="253">
               <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -61,7 +61,7 @@
       <file leaf-file-name="plecak.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmake-build-debug/plecak.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="7268">
               <caret line="316" column="29" selection-start-line="316" selection-start-column="29" selection-end-line="316" selection-end-column="29" />
               <folding>
                 <element signature="e#41#58#0" expanded="true" />
@@ -107,7 +107,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,6 +129,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -189,9 +189,8 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62528217" visible="true" weight="0.14563759" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.62528217" visible="true" weight="0.147651" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.49821427" visible="true" weight="0.21225071" />
       <window_info anchor="bottom" id="CMake" order="10" sideWeight="0.5026846" side_tool="true" weight="0.21225071" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5017857" side_tool="true" weight="0.15587267" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
@@ -204,6 +203,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Messages" order="1" sideWeight="0.49821427" visible="true" weight="0.21225071" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="5" />
@@ -221,6 +221,41 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/zBF_75.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/zBF_50.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/plecak.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/plecak.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7268">
+          <caret line="316" column="29" selection-start-line="316" selection-start-column="29" selection-end-line="316" selection-end-column="29" />
+          <folding>
+            <element signature="e#41#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/bezBF_25.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -521,7 +556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
+        <state relative-caret-position="253">
           <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -534,7 +569,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/plecak.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
+        <state relative-caret-position="7268">
           <caret line="316" column="29" selection-start-line="316" selection-start-column="29" selection-end-line="316" selection-end-column="29" />
           <folding>
             <element signature="e#41#58#0" expanded="true" />
