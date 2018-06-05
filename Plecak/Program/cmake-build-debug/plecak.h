@@ -24,6 +24,8 @@ public:
     bool *tmp;  //pomocnicza by każda rekurencja nie tworzyła swojej własnej tablicy o rozmiarze size
     bool *tmp2; //pod koniec funkcji wynik jest tutaj, na sam koniec jest spowrotem wyzerowana
     int m;      //najlepsza wartość jest tutaj przechowywana, na sam koniec jest spowrotem ustawiana na 0
+    int** prog;
+    int vent;
     //programowanie dynamicze
     int programowanieDynamiczne(); //płaczę :.(
 private: // to funkcje sortujące do heurystyk

@@ -53,6 +53,11 @@ plecak::plecak(int s, float b) {
     tab[4][0]=3;
      */
     /////
+    /*
+    prog=new int* [ladownosc+1] ;
+    for(int j=0;j<ladownosc+1;j++)
+        prog[j]=new int[size+1];
+    */
 };
 
 void plecak::wypisz_plecak(){
@@ -295,12 +300,16 @@ void plecak::bruteForceMadry(int waga,int wartosc,int bit){
     tmp[bit]=0;
     if(bit==0){
         std::cout<<m<<" najlepsze brute force Madry"<<std::endl;
+        vent=m;
+        m=0;
+        /*
         for(int i=0;i<size;i++){
             std::cout<<tmp2[i];
             tmp[i]=0;
             tmp2[i]=0;
         }
         m=0;
+        */
         std::cout<<std::endl;
     }
 };
@@ -312,7 +321,7 @@ int plecak::programowanieDynamiczne() {                                    //1-w
 //        prog[j]=new int[size+1];
     
 
-    int prog[100001][1001];
+    int prog[1000][250];
 
     for(int i=0;i<size+1;i++)
         for (int j = 0; j < ladownosc + 1; j++)
@@ -336,8 +345,8 @@ int plecak::programowanieDynamiczne() {                                    //1-w
             std::cout<<"************"<<std::endl;
             */
             if(tab[i-1][0]<=j){
-                if(j-tab[i-1][0]>0){
-                    nowaWartosc=prog[i-1][j-tab[i-1][0]]+tab[i-1][1];
+                if(j-tab[i-1][0]>=0){
+                    nowaWartosc=prog[i-1][j-tab[i-1][0]] + tab[i-1][1];
                 }
                 else{
                     nowaWartosc=tab[i-1][1];
@@ -361,6 +370,17 @@ int plecak::programowanieDynamiczne() {                                    //1-w
         std::cout<<std::endl;
     }
     */
+    int a=size,b=ladownosc;
+    int waga;
+    while(prog[a][b]!=0){
+        if(prog[a][b]==prog[a-1][b]){
+            a--;
+        }
+        b-=tab[a-1][0];
+        waga+=tab[a-1][1];
+    }
+    std::cout<<waga<<"najlepsza wartosc"<<std::endl;
+    std::cout<<prog[size][ladownosc]<<"najlepsza wartosc"<<std::endl;
     return prog[size][ladownosc];
 };
 

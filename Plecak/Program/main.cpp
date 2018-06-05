@@ -23,12 +23,12 @@ int main() {
 
 //    for (int i = bf_poczatek; i <=bf_koniec ; i+=bf_krok) {
 //        plecak P(i,0.25f);
-//        z2_25<<i<<" ";
+//        //z2_25<<i<<" ";
 //        auto start = std::chrono::high_resolution_clock::now();
-//        std::cout<<"pomocy: "<<P.programowanieDynamiczne()<<std::endl;
+//        //std::cout<<"pomocy: "<<P.programowanieDynamiczne()<<std::endl;
 //        auto stop = std::chrono::high_resolution_clock::now();
 //        std::chrono::duration<double, std::milli> diff = stop - start;
-//        z2_25<<diff.count()<<" ";
+//        //z2_25<<diff.count()<<" ";
 //
 //        start = std::chrono::high_resolution_clock::now();
 //        P.bruteForce();
@@ -47,8 +47,36 @@ int main() {
 //        stop = std::chrono::high_resolution_clock::now();
 //        diff = stop - start;
 //        z2_25<<diff.count()<<std::endl;
-//    }
-//
+//   }
+    float wgh1=0,wgh2=0,wgh3=0,wgh4=0;
+    float a1,a2,a3,a4;
+    for (int i = bf_poczatek; i <=bf_koniec ; i+=bf_krok) {
+        z2_50<<i<<" ";
+        plecak P(i,0.75f);
+        P.bruteForceMadry();
+        //z2_25<<P.vent<<" ";
+
+        a1=P.GH1();
+        a2=P.GH2();
+        a3=P.GH3();
+        a4=P.GH4();
+
+        wgh1+=(float)(P.vent-a1)/(float)P.vent*100;
+        wgh2+=(float)(P.vent-a2)/(float)P.vent*100;
+        wgh3+=(float)(P.vent-a3)/(float)P.vent*100;
+        wgh4+=(float)(P.vent-a4)/(float)P.vent*100;
+
+        z2_50<<(float)(P.vent-a1)/(float)P.vent*100<<" ";
+        z2_50<<(float)(P.vent-a2)/(float)P.vent*100<<" ";
+        z2_50<<(float)(P.vent-a3)/(float)P.vent*100<<" ";
+        z2_50<<(float)(P.vent-a4)/(float)P.vent*100<<" ";
+        z2_50<<std::endl;
+
+        P.vent=0;
+        std::cout<<"tak"<< i<<std::endl;
+    }
+    z2_25<<wgh1/10<<" "<<wgh2/10<<" "<<wgh3/10<<" "<<wgh4/10;
+
 //    for (int i = bf_poczatek; i <=bf_koniec ; i+=bf_krok) {
 //        plecak P(i,0.50f);
 //        z2_50<<i<<" ";
@@ -105,7 +133,7 @@ int main() {
 //        z2_75<<diff.count()<<std::endl;
 //    }
 
-    for (int i = h_poczatek; i <=h_koniec ; i+=h_krok) {
+    /*for (int i = h_poczatek; i <=h_koniec ; i+=h_krok) {
         plecak P(i,0.25f);
         z3_25<<i<<" ";
         P.bruteForceMadry();
@@ -115,7 +143,8 @@ int main() {
         z3_25<<P.GH3()<<" ";
         z3_25<<P.GH4()<<std::endl;
     }
-
+     */
+    /*
     for (int i = h_poczatek; i <=h_koniec ; i+=h_krok) {
         plecak P(i,0.50f);
         z3_50<<i<<" ";
@@ -137,7 +166,7 @@ int main() {
         z3_75<<P.GH3()<<" ";
         z3_75<<P.GH4()<<std::endl;
     }
-
+    */
 
 //
 //    plecak P(10,0.5f);
