@@ -37,7 +37,7 @@
 		\vspace*{\fill}
 		\begin{center}
 			{\Large Algorytmy i struktury danych \\[0.1cm]
-				Sprawozdanie z zadania w zespołach nr. 4\\[0.1cm]
+				Sprawozdanie z zadania w zespołach nr. 5\\[0.1cm]
 				prowadząca: dr hab. inż. Małgorzata Sterna, prof PP}\\
 			{\Huge Programowanie dynamiczne\\ [0.4cm]}
 			{\large autorzy:\\[0.1cm]}
@@ -51,7 +51,7 @@
 	
 	\section{Implementacja}
 	
-	Do implementacji algorytmów wspomagających wybór paczek użyliśmy języka C++, a do pomiarów czasu klasy $std::chrono::hight_resolution_clock$, z biblioteki $chrono$. W implementacji zastosowano algorytmy korzystające z  siedmiu różnych strategii wyboru paczek:
+	Do implementacji algorytmów wspomagających wybór paczek użyliśmy języka C++, a do pomiarów czasu klasy $std::chrono::hight\_resolution\_clock$, z biblioteki $chrono$. W implementacji zastosowano algorytmy korzystające z  siedmiu różnych strategii wyboru paczek:
 	\begin{itemize}
 		\item $PD$ - programowania dynamicznego,
 		\item $BF_{1}$ - pełnego przeglądu,
@@ -320,7 +320,7 @@
 	
 	Metody $BF_{1}$ i $BF_{2}$ zwracają optymalny wynik, jednak przez zastosowanie pełnego przeglądu złożoność metody $BF_{1}$ wynosi $O(2^{n})$, a metoda $BF_{2}$, eliminująca rozwiązania niedopuszczalne, działa nie wolniej od metody $BF_{1}$
 	
-	Złożoność obliczeniowa algorytmu wykorzystującego programowanie dynamiczne, wynosi $O(n \cdot) b$, gdzie $n$ - liczba dostępnych paczek, $b$ - maksymalna ładowność plecaka. Metoda ta, korzysta z możliwości podziału problemu na zależne od siebie pod problemy, oraz zwraca optymalny wynik, jednak działa szybciej od metod $BF$. Nie jest jednak zależna tylko od ilości paczek, ale również od pojemności plecaka.
+	Złożoność obliczeniowa algorytmu wykorzystującego programowanie dynamiczne, wynosi $O(n \cdot b)$, gdzie $n$ - liczba dostępnych paczek, $b$ - maksymalna ładowność plecaka. Metoda ta, korzysta z możliwości podziału problemu na zależne od siebie pod problemy, oraz zwraca optymalny wynik, jednak działa szybciej od metod $BF$. Nie jest jednak zależna tylko od ilości paczek, ale również od pojemności plecaka.
 	
 	Strategie heurystyczne nie gwarantują otrzymania wyniku optymalnego, jednak działają znacznie szybciej od poprzednich metod, złożoność dla metody $GH_{1}$ wynosi $O(n)$, a dla pozostałych metod heurystycznych $O(2n)$, przez zastosowanie sortowania przez zliczanie.
 	
